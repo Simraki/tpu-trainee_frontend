@@ -2,7 +2,6 @@ import path from 'path'
 import { Configuration } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import ESLintPlugin from 'eslint-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
 const config: Configuration = {
@@ -29,20 +28,6 @@ const config: Configuration = {
                     },
                 },
             },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.less$/i,
-                use: [{
-                    loader: 'style-loader',
-                }, {
-                    loader: 'css-loader',
-                }, {
-                    loader: 'less-loader',
-                }],
-            },
         ],
     },
     resolve: {
@@ -54,9 +39,6 @@ const config: Configuration = {
         }),
         new ForkTsCheckerWebpackPlugin({
             async: false,
-        }),
-        new ESLintPlugin({
-            extensions: ['js', 'jsx', 'ts', 'tsx'],
         }),
         new CleanWebpackPlugin(),
     ],
