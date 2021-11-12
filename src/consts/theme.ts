@@ -1,9 +1,9 @@
 import { createTheme, Theme } from '@mui/material'
 
-const primary = '#17d328'
-const secondary = '#FF0000'
-const black = '#262626'
-const white = '#FFFFFF'
+const primary = '#25B2A6'
+const secondary = '#1C2129'
+const black = '#1C2129'
+
 const darkBlack = 'rgb(36, 40, 44)'
 const background = '#f5f5f5'
 
@@ -23,8 +23,7 @@ const theme: Theme = createTheme({
         primary: {main: primary},
         secondary: {main: secondary},
         common: {
-            black,
-            white,
+            black: black,
         },
         tonalOffset: 0.2,
         background: {
@@ -42,6 +41,31 @@ const theme: Theme = createTheme({
         },
     },
     components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontFamily: '\'Inter\', sans-serif',
+                    fontWeight: 500,
+                    fontStyle: 'normal',
+                    borderRadius: 23,
+                    paddingTop: calSpacing(0.5),
+                    paddingBottom: calSpacing(0.5),
+                    paddingLeft: calSpacing(2),
+                    paddingRight: calSpacing(2),
+                    marginLeft: calSpacing(0.25),
+                    marginRight: calSpacing(0.25),
+                    textTransform: 'none'
+                },
+            },
+        },
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontFamily: '\'Inter\', sans-serif',
+                    fontStyle: 'normal',
+                },
+            },
+        },
         MuiTableCell: {
             styleOverrides: {
                 root: {
@@ -89,5 +113,9 @@ const theme: Theme = createTheme({
         },
     },
 })
+
+function calSpacing(m: number): number {
+    return spacing * m
+}
 
 export default theme
