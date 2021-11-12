@@ -3,9 +3,6 @@ import { GlobalStyles } from '@mui/material'
 
 
 const UserGlobalStyles: FC = () => (<GlobalStyles styles={{
-    '*:focus': {
-        outline: 0,
-    },
 
     /**
      * Text selection color
