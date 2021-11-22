@@ -5,7 +5,7 @@ const Tests: FC = () => {
 
     return (
         <>
-            <div style={{height: 500, backgroundColor: 'orange'}}/>
+            <div style={{height: 500, background: 'orange'}}/>
             <p>Current pathname: {location.pathname}</p>
         </>
     )

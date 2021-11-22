@@ -13,7 +13,7 @@ const ModalBackdrop: FC<IModalBackdropProps> = ({open}) => (<Backdrop open={open
     zIndex: 1200,
     position: 'fixed',
     touchAction: 'none',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    background: 'rgba(0, 0, 0, 0.5)',
 }}/>)
 
 
