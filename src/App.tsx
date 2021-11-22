@@ -4,7 +4,7 @@ import { inject, InjectorContext } from 'react-ioc'
 import RootStore from './stores/RootStore'
 import routes from './consts/routes'
 import { ThemeProvider } from '@emotion/react'
-import { CssBaseline } from '@mui/material'
+import { Box, CssBaseline } from '@mui/material'
 import { observer } from 'mobx-react'
 import UserGlobalStyles from './UserGlobalStyles'
 import { withDependencies } from './hocs/withDependencies'
@@ -25,9 +25,11 @@ class App extends React.PureComponent {
             <React.StrictMode>
                 <ThemeProvider theme={this.store.themeStore.theme}>
                     <CssBaseline/>
-                    <UserGlobalStyles/>
+                    <UserGlobalStyles theme={this.store.themeStore.theme}/>
                     <NavBar/>
-                    <MobxRouter store={this.store}/>
+                    <Box component={'main'} p={3} px={10}>
+                        <MobxRouter store={this.store}/>
+                    </Box>
                 </ThemeProvider>
             </React.StrictMode>)
     }

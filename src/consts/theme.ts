@@ -1,4 +1,6 @@
-import { createTheme, Theme } from '@mui/material'
+import { alpha, createTheme, Theme } from '@mui/material'
+import { grey } from '@mui/material/colors'
+import shadows from '@mui/material/styles/shadows'
 
 const primary = '#25B2A6'
 const secondary = '#1C2129'
@@ -20,9 +22,10 @@ const spacing = 8
 
 const theme: Theme = createTheme({
     palette: {
-        primary: {main: primary},
+        primary: {main: primary, contrastText: '#FFFFFF'},
         secondary: {main: secondary},
         common: {
+            white: '#fff',
             black: black,
         },
         tonalOffset: 0.2,
@@ -31,6 +34,12 @@ const theme: Theme = createTheme({
         },
     },
     spacing: spacing,
+    typography: {
+        fontFamily: '\'Inter\', sans-serif'
+    },
+    shape: {
+        borderRadius: 5
+    },
     breakpoints: {
         values: {
             xl,
@@ -44,27 +53,37 @@ const theme: Theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    fontFamily: '\'Inter\', sans-serif',
                     fontWeight: 500,
                     fontStyle: 'normal',
-                    borderRadius: 23,
-                    paddingTop: calSpacing(0.5),
-                    paddingBottom: calSpacing(0.5),
-                    paddingLeft: calSpacing(2),
-                    paddingRight: calSpacing(2),
-                    marginLeft: calSpacing(0.25),
-                    marginRight: calSpacing(0.25),
-                    textTransform: 'none'
+                    textTransform: 'none',
                 },
             },
-        },
-        MuiTypography: {
-            styleOverrides: {
-                root: {
-                    fontFamily: '\'Inter\', sans-serif',
-                    fontStyle: 'normal',
+            variants: [
+                {
+                    props: {variant: 'contained', color: 'secondary'},
+                    style: {
+                        background: 'white',
+                        color: primary,
+                        boxShadow: shadows[3],
+                        '&:hover': {
+                            background: '#e9f2f6',
+                        },
+                        '&:active': {
+                            boxShadow: shadows[5],
+                        }
+                    },
                 },
-            },
+                {
+                    props: {color: 'inherit'},
+                    style: {
+                        color: '#1F2937',
+                        background: '#E4E4E4',
+                        '&:hover': {
+                            background: grey[400],
+                        },
+                    }
+                }
+            ],
         },
         MuiTableCell: {
             styleOverrides: {
@@ -82,7 +101,7 @@ const theme: Theme = createTheme({
         MuiDivider: {
             styleOverrides: {
                 root: {
-                    backgroundColor: borderColor,
+                    background: borderColor,
                     height: borderWidth,
                 },
             },
@@ -107,15 +126,11 @@ const theme: Theme = createTheme({
         MuiTooltip: {
             styleOverrides: {
                 tooltip: {
-                    backgroundColor: darkBlack,
+                    background: darkBlack,
                 },
             },
         },
     },
 })
-
-function calSpacing(m: number): number {
-    return spacing * m
-}
 
 export default theme

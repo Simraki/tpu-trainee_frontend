@@ -1,15 +1,15 @@
 import React from 'react'
-import TodoView from '../components/examples/TodoView'
 import RootStore from '../stores/RootStore'
-import Main from '../components/Main'
 import { Route } from '@simraki/mobx-router'
 import Tests from '../components/Tests'
+import StudentProfile from '../components/profile/StudentProfile'
+import EditStudentProfile from '../components/edit/EditStudentProfile'
 
 
 const routes = {
     home: new Route<RootStore>({
         path: '/',
-        component: <Main/>,
+        component: <StudentProfile/>,
     }),
     tests: new Route<RootStore>({
         path: '/tests',
@@ -17,7 +17,7 @@ const routes = {
     }),
     todos: new Route<RootStore>({
         path: '/todos',
-        component: <TodoView/>,
+        component: <EditStudentProfile/>,
     }),
 }
 export default routes

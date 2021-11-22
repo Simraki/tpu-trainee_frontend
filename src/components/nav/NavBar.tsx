@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react'
-import { AppBar, Box, Container, Grid, Stack, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Container, Grid, Stack, styled, Toolbar, Typography } from '@mui/material'
 import { Announcement, CarRental, Home, PriceChange } from '@mui/icons-material'
 import { useInstance } from 'react-ioc'
 import { observer } from 'mobx-react'
@@ -7,8 +7,16 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import routes from '../../consts/routes'
 import RootStore from '../../stores/RootStore'
 import tpu_logo from '../../asset/tpu_logo.png'
-import ContainedButton from '../../shared/components/ContainedButton'
-import TextButton from '../../shared/components/TextButton'
+import RoundedButton from '../../shared/components/RoundedButton'
+import { grey } from '@mui/material/colors'
+
+const TextButton = styled(RoundedButton)(({theme}) => ({
+    color: theme.palette.common.white,
+    background: 'transparent',
+    '&:hover': {
+        color: grey[500],
+    },
+}))
 
 
 const NavBar: FC = () => {
@@ -52,7 +60,6 @@ const NavBar: FC = () => {
 
     return (
         <AppBar position="sticky" color={'secondary'} sx={{boxShadow: 6}}>
-            {/*<Toolbar variant={'dense'}>*/}
             <Toolbar>
                 <Container>
                     <Grid container justifyContent={'space-evenly'} alignItems={'center'}>
@@ -64,9 +71,7 @@ const NavBar: FC = () => {
                                         noWrap
                                         variant={'subtitle1'}
                                         style={{
-                                            fontFamily: '\'Inter\', sans-serif',
                                             fontWeight: 600,
-                                            fontStyle: 'normal',
                                             color: 'white',
                                         }}>
                                         СТАЖИРОВКИ
@@ -75,9 +80,7 @@ const NavBar: FC = () => {
                                         noWrap
                                         variant={'subtitle2'}
                                         style={{
-                                            fontFamily: '\'Inter\', sans-serif',
                                             fontWeight: 500,
-                                            fontStyle: 'normal',
                                             color: 'white',
                                         }}>
                                         ТОМСКИЙ ПОЛИТЕХ
@@ -86,13 +89,20 @@ const NavBar: FC = () => {
                             </Stack>
                         </Grid>
                         <Grid item container justifyContent={'center'} xs={6}>
-                            {menuItems.map(el => el.isActive
-                                ? (<ContainedButton onClick={() => store.router.goTo(el.route)} key={el.name}>
-                                    {el.name}
-                                </ContainedButton>)
-                                : (<TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
-                                    {el.name}
-                                </TextButton>),
+                            {menuItems.map(el => {
+                                    return el.isActive ?
+                                        (<RoundedButton variant={'contained'}
+                                                        sx={{
+                                                            color: theme => theme.palette.common.white,
+                                                        }}
+                                                        onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                            {el.name}
+                                        </RoundedButton>)
+                                        :
+                                        (<TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                            {el.name}
+                                        </TextButton>)
+                                },
                             )}
                         </Grid>
                         <Grid item xs={3}>
