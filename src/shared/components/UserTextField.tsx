@@ -1,5 +1,4 @@
 import { Box, styled, TextField, TextFieldProps, Typography, TypographyProps } from '@mui/material'
-import { grey } from '@mui/material/colors'
 import React, { FC } from 'react'
 
 interface IUserTextField {
@@ -9,16 +8,7 @@ interface IUserTextField {
 }
 
 const InputField = styled(TextField)<TextFieldProps>(({theme}) => ({
-    background: 'white',
-    borderRadius: 5,
-    '& .MuiOutlinedInput-root': {
-        '&:hover fieldset': {
-            borderColor: grey[700],
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: theme.palette.primary.main,
-        },
-    },
+    color: '#a9a9a9',
 }))
 
 const UserTextField: FC<IUserTextField> = (props) => {

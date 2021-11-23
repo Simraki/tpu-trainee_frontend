@@ -11,13 +11,13 @@ const routes = {
         path: '/',
         component: <StudentProfile/>,
     }),
-    tests: new Route<RootStore>({
-        path: '/tests',
-        component: <Tests/>,
-    }),
     todos: new Route<RootStore>({
         path: '/todos',
         component: <EditStudentProfile/>,
+    }),
+    tests: new Route<RootStore>({
+        path: '/tests',
+        component: <Tests/>,
     }),
 }
 export default routes

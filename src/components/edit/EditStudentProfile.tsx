@@ -1,16 +1,21 @@
 import React, { FC } from 'react'
 import { Autocomplete, ButtonProps, Chip, Grid, InputAdornment, styled, Typography } from '@mui/material'
-import ContainedButton from '../../shared/components/ContainedButton'
 import UserTextField from '../../shared/components/UserTextField'
 import { green, lime, orange, pink, purple, red, teal } from '@mui/material/colors'
 import { observer } from 'mobx-react'
+import RoundedButton from '../../shared/components/RoundedButton'
+import { bgColors, textColors } from '../../consts/chipColors'
 
-const ToggleButton = styled(ContainedButton)<ButtonProps>(({theme}) => ({
+const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
     color: '#343535',
     background: 'white',
     fontWeight: 400,
     margin: 16,
+    // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
+    boxShadow: theme.shadows[2],
     '&:hover': {
+        // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
+        boxShadow: theme.shadows[2],
         background: theme.palette.primary.dark,
         color: 'white',
     },
@@ -56,7 +61,15 @@ const EditStudentProfile: FC = () => {
                     <UserTextField label={'Фамилия'}/>
                     <UserTextField label={'Имя'}/>
                     <UserTextField label={'Отчество'}/>
-                    <UserTextField label={'Дата рождения'} inputProps={{type: 'date'}}/>
+                    <UserTextField label={'Дата рождения'}
+                                   inputProps={{
+                                       type: 'date',
+                                       inputProps: {
+                                           style: {
+                                               color: '#a4a4a4',
+                                           },
+                                       },
+                                   }}/>
                     <Autocomplete options={['ТПУ', 'ТГУ']}
                                   renderInput={params => <UserTextField label={'Университет'}
                                                                         inputProps={params}/>}/>
@@ -69,14 +82,12 @@ const EditStudentProfile: FC = () => {
                                   renderTags={(value: readonly string[], getTagProps) =>
                                       value.map((option: string, index: number) => (
                                           // eslint-disable-next-line react/jsx-key
-                                          <Chip variant={'outlined'}
+                                          <Chip size={'small'}
                                                 style={{
-                                                    background: 'white',
-                                                    borderWidth: 2,
-                                                    borderColor: colorArray[index % colorArray.length][paletteBg],
-                                                    color: colorArray[index % colorArray.length][paletteText]
+                                                    background: bgColors[index % bgColors.length],
+                                                    color: textColors[index % textColors.length],
                                                 }}
-                                                label={option} {...getTagProps({index})} />
+                                                label={option} {...getTagProps({index})}/>
                                       ))
                                   }
                                   renderInput={params => <UserTextField label={'Технологический стек'}

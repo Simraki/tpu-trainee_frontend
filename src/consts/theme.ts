@@ -1,4 +1,4 @@
-import { alpha, createTheme, Theme } from '@mui/material'
+import { createTheme, Theme } from '@mui/material'
 import { grey } from '@mui/material/colors'
 import shadows from '@mui/material/styles/shadows'
 
@@ -35,10 +35,10 @@ const theme: Theme = createTheme({
     },
     spacing: spacing,
     typography: {
-        fontFamily: '\'Inter\', sans-serif'
+        fontFamily: '\'Inter\', sans-serif',
     },
     shape: {
-        borderRadius: 5
+        borderRadius: 5,
     },
     breakpoints: {
         values: {
@@ -70,20 +70,34 @@ const theme: Theme = createTheme({
                         },
                         '&:active': {
                             boxShadow: shadows[5],
-                        }
+                        },
                     },
                 },
-                {
-                    props: {color: 'inherit'},
-                    style: {
-                        color: '#1F2937',
-                        background: '#E4E4E4',
-                        '&:hover': {
-                            background: grey[400],
-                        },
-                    }
-                }
             ],
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    '&:hover': {
+                        boxShadow: shadows[2],
+                    },
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '.MuiOutlinedInput-root': {
+                        background: 'white',
+                        '&:hover fieldset': {
+                            borderColor: grey[700],
+                        },
+                        '&.Mui-focused fieldset': {
+                            borderColor: primary,
+                        },
+                    },
+                },
+            },
         },
         MuiTableCell: {
             styleOverrides: {

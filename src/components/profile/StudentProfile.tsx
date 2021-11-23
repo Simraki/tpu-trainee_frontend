@@ -1,28 +1,16 @@
 import React, { useState } from 'react'
-import {
-    Box,
-    Button,
-    ButtonProps,
-    Chip,
-    Grid,
-    IconButton,
-    Paper,
-    Stack,
-    styled,
-    Tab,
-    Tabs,
-    Typography,
-} from '@mui/material'
+import { Box, Button, ButtonProps, Grid, IconButton, Paper, Stack, styled, Tab, Tabs, Typography } from '@mui/material'
 import { observer } from 'mobx-react'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined'
 import ProfileIcon from '../../shared/components/ProfileIcon'
-import RoundedButton from '../../shared/components/RoundedButton'
 import { TabContext, TabPanel } from '@mui/lab'
+import SectionWithTitle from '../../shared/components/SectionWithTitle'
+import TabStudentInfo from './student/TabStudentInfo'
 
-const TestButton = styled((props: ButtonProps) =>
+const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
     padding: 0,
     borderRadius: theme.shape.borderRadius,
@@ -49,24 +37,6 @@ const StyledTab = styled(Tab)(({theme}) => ({
 }))
 
 
-// function TabPanel(props: { children?: React.ReactNode, index: number, value: number }) {
-//     const {children, value, index, ...other} = props
-//
-//     return (
-//         <div
-//             hidden={value !== index}
-//             {...other}
-//         >
-//             {value === index && (
-//                 <Fade duration={500}>
-//                     <div>{children}</div>
-//                 </Fade>
-//             )}
-//         </div>
-//     )
-// }
-
-
 const StudentProfile = () => {
 
     const [value, setValue] = useState(0)
@@ -74,10 +44,6 @@ const StudentProfile = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
     }
-
-    const tags: string[] = ['React', 'Java', 'JavaScript', 'Kotlin', 'React Native', 'C#', 'MySQL', 'Git']
-    const bgColors: string[] = ['#DDDDDD', '#FEE2E2', '#FEF3C7', '#D1FAE5', '#DBEAFE', '#E0E7FF', '#EDE9FE', '#FCE7F3']
-    const textColors: string[] = ['#1F2937', '#991B1B', '#92400E', '#065F46', '#1E40AF', '#3730A3', '#5B21B6', '#9D174D']
 
     return (
         <>
@@ -96,13 +62,9 @@ const StudentProfile = () => {
                             Добро пожаловать, Иванов Иван Иванович!
                         </Typography>
                         <span>
-                            <TestButton><FileDownloadOutlinedIcon/></TestButton>
-                            <TestButton>
-                                <VisibilityOutlinedIcon/>
-                            </TestButton>
-                            <TestButton>
-                                <EditOutlinedIcon/>
-                            </TestButton>
+                            <HeaderButton title={'???'}><FileDownloadOutlinedIcon/></HeaderButton>
+                            <HeaderButton title={'???'}><VisibilityOutlinedIcon/></HeaderButton>
+                            <HeaderButton title={'???'}><EditOutlinedIcon/></HeaderButton>
                         </span>
                     </Stack>
                     <Grid container>
@@ -145,77 +107,25 @@ const StudentProfile = () => {
                                 {/*}}/>*/}
                             </Paper>
                             <Button variant={'contained'} color={'secondary'}>Посмотреть профиль</Button>
-                            <section>
-                                <Typography variant={'subtitle1'} style={{fontWeight: 700}}>Контактные
-                                    данные</Typography>
-                                <br/>
+                            <SectionWithTitle title={'Контактные данные'}>
                                 <Typography variant={'body1'}>640434 Томск, ул. Вершинина, 39а</Typography>
                                 <br/>
                                 <Typography variant={'body1'}> +7 (999) 111-22-33</Typography>
                                 <Typography variant={'body1'}> name@mail.ru</Typography>
-                            </section>
+                            </SectionWithTitle>
                         </Stack>
                     </Grid>
                     <Grid item xs={6}>
                         <Box pt={5}>
                             <TabContext value={value.toString()}>
                                 <TabPanel value={'0'} sx={{p: 0}}>
-                                    <section>
-                                        <Typography variant={'subtitle1'} style={{fontWeight: 700}}>Резюме</Typography>
-                                        <Typography variant={'body1'}>ФИО: Иванов Иван Иванович</Typography>
-                                        <Typography variant={'body1'}>Дата рождения: 12.12.2000</Typography>
-                                        <Typography variant={'body1'}>Образование: 3 курс</Typography>
-                                        <Typography variant={'body1'}>Достижения: обладатель государственной
-                                            президентской
-                                            стипендии</Typography>
-                                    </section>
-                                    <Box component={'section'} mt={6}>
-                                        <Typography variant={'subtitle1'} style={{fontWeight: 700}}>Дополнительная
-                                            информация</Typography>
-                                        <Typography variant={'body1'}>КМС по спортивному ориентированию</Typography>
-                                        <Typography variant={'body1'}>Волонтер в организации “Стиль жизни”</Typography>
-                                    </Box>
-                                    <Box component={'section'} mt={6}>
-                                        <Typography variant={'subtitle1'} style={{fontWeight: 700}}>Тэги</Typography>
-                                        {tags.map((el, index) => (
-                                            <Chip size={'small'}
-                                                  style={{
-                                                      background: bgColors[index % bgColors.length],
-                                                      color: textColors[index % textColors.length],
-                                                      marginRight: 12,
-                                                  }}
-                                                  key={el}
-                                                  label={el}/>
-                                        ))}
-                                    </Box>
-                                    <Box component={'section'} mt={6}>
-                                        <Typography variant={'subtitle1'} style={{fontWeight: 700}}>Резюме</Typography>
-                                        <RoundedButton
-                                            variant={'contained'}
-                                            color={'inherit'}
-                                            endIcon={<FileDownloadOutlinedIcon/>}
-                                                       size={'small'}
-                                                       sx={{
-                                                           mr: 1,
-                                                           boxShadow: theme => theme.shadows[1],
-                                                           height: theme => theme.spacing(3),
-                                                       }}>PDF</RoundedButton>
-                                        <RoundedButton
-                                            variant={'contained'}
-                                            color={'inherit'}
-                                            endIcon={<FileDownloadOutlinedIcon/>}
-                                                       size={'small'}
-                                                       sx={{
-                                                           boxShadow: theme => theme.shadows[1],
-                                                           height: theme => theme.spacing(3),
-                                                       }}>DOC</RoundedButton>
-                                    </Box>
+                                    <TabStudentInfo/>
                                 </TabPanel>
                                 <TabPanel value={'1'}>
-                                    Item Two
+                                    <TabStudentInfo/>
                                 </TabPanel>
-                                <TabPanel value={'2'}>
-                                    Item Three
+                                <TabPanel value={'2'} sx={{mt: -5}}>
+                                    <TabStudentInfo/>
                                 </TabPanel>
                             </TabContext>
                         </Box>
