@@ -8,7 +8,7 @@ import { bgChipColors, textChipColors } from '../../consts/sideColors'
 
 const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
     color: '#343535',
-    bgcolor: 'white',
+    background: 'white',
     fontWeight: 400,
     margin: 16,
     // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
@@ -16,7 +16,7 @@ const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
     '&:hover': {
         // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
         boxShadow: theme.shadows[2],
-        bgcolor: theme.palette.primary.dark,
+        background: theme.palette.primary.dark,
         color: 'white',
     },
 }))

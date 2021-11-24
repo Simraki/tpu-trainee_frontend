@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import ProfileIcon from '../../../shared/components/ProfileIcon'
-import { Avatar, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { Avatar, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material'
 import { bgAvatarColors } from '../../../consts/sideColors'
+import StyledTableHead, { TitleTable } from '../../../shared/components/StyledTableHead'
 
 
 const StudentInfoTab: FC = () => {
@@ -45,18 +46,27 @@ const StudentInfoTab: FC = () => {
         },
     ]
 
+    const titles: TitleTable[] = [
+        {
+            title: 'Компания',
+            span: 2,
+        },
+        {
+            title: 'Вакансия',
+        },
+        {
+            title: 'Дата',
+        },
+        {
+            title: 'Статус',
+        },
+    ]
+
     return (
         <>
             <TableContainer component={Paper} sx={{borderRadius: 2}}>
                 <Table size={'small'}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align={'left'} colSpan={2}>Компания</TableCell>
-                            <TableCell align={'left'}>Вакансия</TableCell>
-                            <TableCell align={'left'}>Дата</TableCell>
-                            <TableCell align={'left'}>Статус</TableCell>
-                        </TableRow>
-                    </TableHead>
+                    <StyledTableHead titles={titles} color={'grey'}/>
                     <TableBody>
                         {applications.map((el, ix) => (
                             <TableRow key={ix}>

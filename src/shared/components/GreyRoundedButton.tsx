@@ -9,11 +9,11 @@ const GreyRoundedButton = styled((props) =>
     skipVariantsResolver: true,
 })<ButtonProps>(({theme}) => ({
     color: '#1F2937',
-    bgcolor: '#E4E4E4',
+    background: '#E4E4E4',
     boxShadow: theme.shadows[1],
     height: theme.spacing(3),
     '&:hover': {
-        bgcolor: grey[400],
+        background: grey[400],
     },
 }))
 

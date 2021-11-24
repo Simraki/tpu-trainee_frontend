@@ -102,9 +102,7 @@ const theme: Theme = createTheme({
         MuiTableHead: {
             styleOverrides: {
                 root: {
-                    background: '#EBEBEB',
                     boxShadow: shadows[2],
-                    color: '#39847D',
                     fontWeight: 600,
                     letterSpacing: '0.05rem',
                     fontSize: '0.8125rem',
