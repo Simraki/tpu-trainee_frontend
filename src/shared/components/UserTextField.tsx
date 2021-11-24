@@ -7,7 +7,7 @@ interface UserTextFieldProps {
     inputProps?: TextFieldProps
 }
 
-const InputField = styled(TextField)<TextFieldProps>(({theme}) => ({
+const InputField = styled(TextField)<TextFieldProps>(() => ({
     color: '#a9a9a9',
 }))
 

@@ -3,7 +3,7 @@ import { useScrollTrigger, Zoom } from '@mui/material'
 import withWidth from '@mui/material/Hidden/withWidth'
 
 interface IScrollToProps {
-    anchorRef: RefObject<any>
+    anchorRef: RefObject<Element>
 }
 
 const ScrollTo: FC<IScrollToProps> = ({children, anchorRef}) => {
@@ -14,7 +14,7 @@ const ScrollTo: FC<IScrollToProps> = ({children, anchorRef}) => {
     })
 
     const handleClick = () => {
-        anchorRef.current.scrollIntoView({behavior: 'smooth', block: 'center'})
+        anchorRef.current?.scrollIntoView({behavior: 'smooth', block: 'center'})
     }
 
     return (

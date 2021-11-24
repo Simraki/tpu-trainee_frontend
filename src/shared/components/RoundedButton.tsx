@@ -1,6 +1,6 @@
 import { Button, ButtonProps, styled } from '@mui/material'
 
-const RoundedButton = styled(Button)<ButtonProps>(({theme, variant = 'text'}) => ({
+const RoundedButton = styled(Button)<ButtonProps>(({theme}) => ({
     borderRadius: 23,
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),

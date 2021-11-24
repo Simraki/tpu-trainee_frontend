@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Box, Button, Chip, Stack, Typography } from '@mui/material'
 import { bgChipColors, linearGradient, textChipColors } from '../../consts/sideColors'
-import { MapOutlined, PlaceOutlined } from '@mui/icons-material'
+import { PlaceOutlined } from '@mui/icons-material'
 
 const VacancyInfo: FC = () => {
 

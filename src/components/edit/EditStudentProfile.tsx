@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { Autocomplete, ButtonProps, Chip, Grid, InputAdornment, styled, Typography } from '@mui/material'
 import UserTextField from '../../shared/components/UserTextField'
-import { green, lime, orange, pink, purple, red, teal } from '@mui/material/colors'
 import { observer } from 'mobx-react'
 import RoundedButton from '../../shared/components/RoundedButton'
 import { bgChipColors, textChipColors } from '../../consts/sideColors'
@@ -30,12 +29,6 @@ const ActiveToggleButton = styled(ToggleButton)<ButtonProps>(({theme}) => ({
 
 
 const EditStudentProfile: FC = () => {
-
-    const colorArray = [orange, red, green, lime, purple, pink, teal]
-
-    const paletteBg = 200
-    const paletteText = 500
-
 
     return (
         <>

@@ -147,14 +147,7 @@ const theme: Theme = createTheme({
             styleOverrides: {
                 root: {
                     background: borderColor,
-                    height: borderWidth,
-                },
-            },
-        },
-        MuiListItem: {
-            styleOverrides: {
-                divider: {
-                    borderBottom: `${borderWidth}px solid ${borderColor}`,
+                    height: borderWidth as number,
                 },
             },
         },
@@ -167,6 +160,16 @@ const theme: Theme = createTheme({
                     marginRight: spacing,
                 },
             },
+        },
+        MuiToolbar: {
+            styleOverrides: {
+                root: {
+                    [`@media (min-width:  ${sm}px)`]: {
+                        paddingLeft: spacing * 10,
+                        paddingRight: spacing * 10,
+                    },
+                }
+            }
         },
         MuiTooltip: {
             styleOverrides: {

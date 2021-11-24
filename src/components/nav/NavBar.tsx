@@ -61,60 +61,58 @@ const NavBar: FC = () => {
     return (
         <AppBar position="sticky" color={'secondary'} sx={{boxShadow: 6}}>
             <Toolbar>
-                <Container>
-                    <Grid container justifyContent={'space-evenly'} alignItems={'center'}>
-                        <Grid item xs={3}>
-                            <Stack direction={'row'} alignItems={'center'}>
-                                <img src={tpu_logo} style={{width: 40, height: 40, borderRadius: 2}} alt={'TPU Logo'}/>
-                                <Box ml={1}>
-                                    <Typography
-                                        noWrap
-                                        variant={'subtitle1'}
-                                        style={{
-                                            fontWeight: 600,
-                                            color: 'white',
-                                        }}>
-                                        СТАЖИРОВКИ
-                                    </Typography>
-                                    <Typography
-                                        noWrap
-                                        variant={'subtitle2'}
-                                        style={{
-                                            fontWeight: 500,
-                                            color: 'white',
-                                        }}>
-                                        ТОМСКИЙ ПОЛИТЕХ
-                                    </Typography>
-                                </Box>
-                            </Stack>
-                        </Grid>
-                        <Grid item container justifyContent={'center'} xs={6}>
-                            {menuItems.map(el => {
-                                    return el.isActive ?
-                                        (<RoundedButton variant={'contained'}
-                                                        sx={{
-                                                            color: theme => theme.palette.common.white,
-                                                        }}
-                                                        onClick={() => store.router.goTo(el.route)} key={el.name}>
-                                            {el.name}
-                                        </RoundedButton>)
-                                        :
-                                        (<TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
-                                            {el.name}
-                                        </TextButton>)
-                                },
-                            )}
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Stack direction={'row'} justifyContent={'flex-end'}>
-                                <TextButton onClick={() => console.log('NAME Pr')}
-                                            endIcon={<AccountCircleOutlinedIcon/>}>
-                                    Name
-                                </TextButton>
-                            </Stack>
-                        </Grid>
+                <Grid container justifyContent={'space-evenly'} alignItems={'center'}>
+                    <Grid item xs={3}>
+                        <Stack direction={'row'} alignItems={'center'}>
+                            <img src={tpu_logo} style={{width: 40, height: 40, borderRadius: 2}} alt={'TPU Logo'}/>
+                            <Box ml={1}>
+                                <Typography
+                                    noWrap
+                                    variant={'subtitle1'}
+                                    style={{
+                                        fontWeight: 600,
+                                        color: 'white',
+                                    }}>
+                                    СТАЖИРОВКИ
+                                </Typography>
+                                <Typography
+                                    noWrap
+                                    variant={'subtitle2'}
+                                    style={{
+                                        fontWeight: 500,
+                                        color: 'white',
+                                    }}>
+                                    ТОМСКИЙ ПОЛИТЕХ
+                                </Typography>
+                            </Box>
+                        </Stack>
                     </Grid>
-                </Container>
+                    <Grid item container justifyContent={'center'} xs={6}>
+                        {menuItems.map(el => {
+                                return el.isActive ?
+                                    (<RoundedButton variant={'contained'}
+                                                    sx={{
+                                                        color: theme => theme.palette.common.white,
+                                                    }}
+                                                    onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                        {el.name}
+                                    </RoundedButton>)
+                                    :
+                                    (<TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                        {el.name}
+                                    </TextButton>)
+                            },
+                        )}
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Stack direction={'row'} justifyContent={'flex-end'}>
+                            <TextButton onClick={() => console.log('NAME Pr')}
+                                        endIcon={<AccountCircleOutlinedIcon/>}>
+                                Name
+                            </TextButton>
+                        </Stack>
+                    </Grid>
+                </Grid>
             </Toolbar>
         </AppBar>
     )
