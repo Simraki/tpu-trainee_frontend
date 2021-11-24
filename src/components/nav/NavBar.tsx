@@ -12,7 +12,7 @@ import { grey } from '@mui/material/colors'
 
 const TextButton = styled(RoundedButton)(({theme}) => ({
     color: theme.palette.common.white,
-    background: 'transparent',
+    bgcolor: 'transparent',
     '&:hover': {
         color: grey[500],
     },

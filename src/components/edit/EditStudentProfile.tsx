@@ -4,11 +4,11 @@ import UserTextField from '../../shared/components/UserTextField'
 import { green, lime, orange, pink, purple, red, teal } from '@mui/material/colors'
 import { observer } from 'mobx-react'
 import RoundedButton from '../../shared/components/RoundedButton'
-import { bgColors, textColors } from '../../consts/chipColors'
+import { bgChipColors, textChipColors } from '../../consts/sideColors'
 
 const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
     color: '#343535',
-    background: 'white',
+    bgcolor: 'white',
     fontWeight: 400,
     margin: 16,
     // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
@@ -16,7 +16,7 @@ const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
     '&:hover': {
         // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
         boxShadow: theme.shadows[2],
-        background: theme.palette.primary.dark,
+        bgcolor: theme.palette.primary.dark,
         color: 'white',
     },
 }))
@@ -84,8 +84,8 @@ const EditStudentProfile: FC = () => {
                                           // eslint-disable-next-line react/jsx-key
                                           <Chip size={'small'}
                                                 style={{
-                                                    background: bgColors[index % bgColors.length],
-                                                    color: textColors[index % textColors.length],
+                                                    background: bgChipColors[index % bgChipColors.length],
+                                                    color: textChipColors[index % textChipColors.length],
                                                 }}
                                                 label={option} {...getTagProps({index})}/>
                                       ))

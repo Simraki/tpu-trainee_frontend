@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { Chip, Typography } from '@mui/material'
-import { bgColors, textColors } from '../../../consts/chipColors'
+import { bgChipColors, textChipColors } from '../../../consts/sideColors'
 import GreyRoundedButton from '../../../shared/components/GreyRoundedButton'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
 
 
-const TabStudentInfo: FC = () => {
+const StudentInfoTab: FC = () => {
 
     const tags: string[] = ['React', 'Java', 'JavaScript', 'Kotlin', 'React Native', 'C#', 'MySQL', 'Git']
 
@@ -29,8 +29,8 @@ const TabStudentInfo: FC = () => {
                 {tags.map((el, index) => (
                     <Chip size={'small'}
                           style={{
-                              background: bgColors[index % bgColors.length],
-                              color: textColors[index % textColors.length],
+                              background: bgChipColors[index % bgChipColors.length],
+                              color: textChipColors[index % textChipColors.length],
                               marginRight: 12,
                           }}
                           key={el}
@@ -52,4 +52,4 @@ const TabStudentInfo: FC = () => {
     )
 }
 
-export default TabStudentInfo
+export default StudentInfoTab

@@ -8,7 +8,8 @@ import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined'
 import ProfileIcon from '../../shared/components/ProfileIcon'
 import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../shared/components/SectionWithTitle'
-import TabStudentInfo from './student/TabStudentInfo'
+import StudentInfoTab from './student/StudentInfoTab'
+import StudentApplicationsTab from './student/StudentApplicationsTab'
 
 const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
@@ -115,17 +116,17 @@ const StudentProfile = () => {
                             </SectionWithTitle>
                         </Stack>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={8}>
                         <Box pt={5}>
                             <TabContext value={value.toString()}>
                                 <TabPanel value={'0'} sx={{p: 0}}>
-                                    <TabStudentInfo/>
+                                    <StudentApplicationsTab/>
                                 </TabPanel>
                                 <TabPanel value={'1'}>
-                                    <TabStudentInfo/>
+                                    <StudentInfoTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{mt: -5}}>
-                                    <TabStudentInfo/>
+                                    <StudentInfoTab/>
                                 </TabPanel>
                             </TabContext>
                         </Box>

@@ -1,4 +1,4 @@
-import { createTheme, Theme } from '@mui/material'
+import { createTheme, Theme, typographyClasses } from '@mui/material'
 import { grey } from '@mui/material/colors'
 import shadows from '@mui/material/styles/shadows'
 
@@ -99,16 +99,49 @@ const theme: Theme = createTheme({
                 },
             },
         },
+        MuiTableHead: {
+            styleOverrides: {
+                root: {
+                    background: '#EBEBEB',
+                    boxShadow: shadows[2],
+                    color: '#39847D',
+                    fontWeight: 600,
+                    letterSpacing: '0.05rem',
+                    fontSize: '0.8125rem'
+                },
+            },
+        },
+        MuiTableBody: {
+            styleOverrides: {
+                root: {
+                    fontWeight: 400,
+                    letterSpacing: '0.05rem',
+                    fontSize: '0.875rem',
+                    '.MuiTableCell-root': {
+                        paddingTop: 10,
+                        paddingBottom: 10
+                    }
+                },
+            },
+        },
         MuiTableCell: {
             styleOverrides: {
                 root: {
-                    paddingLeft: spacing * 2,
-                    paddingRight: spacing * 2,
-                    borderBottom: `${borderWidth}px solid ${borderColor}`,
-                    [`@media (max-width:  ${sm}px)`]: {
-                        paddingLeft: spacing,
-                        paddingRight: spacing,
-                    },
+                    color: 'inherit',
+                    fontWeight: 'inherit',
+                    fontSize: 'inherit',
+                    border: 'none',
+                    // [`@media (max-width:  ${sm}px)`]: {
+                    //     paddingLeft: spacing,
+                    //     paddingRight: spacing,
+                    // },
+                },
+            },
+        },
+        MuiTableRow: {
+            styleOverrides: {
+                root: {
+                    border: '1px solid #EBEBEB',
                 },
             },
         },
