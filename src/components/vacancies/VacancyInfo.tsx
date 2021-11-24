@@ -83,10 +83,10 @@ const VacancyInfo: FC = () => {
                         ))}
                     </section>
                     <section>
-                        <Typography variant={'subtitle2'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
                             Описание вакансии:
                         </Typography>
-                        <Typography variant={'body2'}>
+                        <Typography variant={'body1'}>
                             Разнообразный и богатый опыт консультация с широким активом позволяет выполнять важные
                             задания по разработке позиций, занимаемых участниками в отношении поставленных задач. Не
                             следует, однако забывать, что консультация с широким активом представляет собой интересный
@@ -94,24 +94,24 @@ const VacancyInfo: FC = () => {
                         </Typography>
                     </section>
                     <section>
-                        <Typography variant={'subtitle2'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
                             Наши преимущества:
                         </Typography>
                         <ul style={{margin: 0}}>
                             {pros.map((el, ix) => (
-                                <Typography component={'li'} variant={'body2'} key={ix}>
+                                <Typography component={'li'} variant={'body1'} key={ix}>
                                     {el}
                                 </Typography>
                             ))}
                         </ul>
                     </section>
                     <section>
-                        <Typography variant={'subtitle2'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
                             Требования:
                         </Typography>
                         <ul style={{margin: 0}}>
                             {requirements.map((el, ix) => (
-                                <Typography component={'li'} variant={'body2'} key={ix}>
+                                <Typography component={'li'} variant={'body1'} key={ix}>
                                     {el}
                                 </Typography>
                             ))}
