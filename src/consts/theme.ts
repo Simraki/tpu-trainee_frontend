@@ -168,8 +168,8 @@ const theme: Theme = createTheme({
                         paddingLeft: spacing * 10,
                         paddingRight: spacing * 10,
                     },
-                }
-            }
+                },
+            },
         },
         MuiTooltip: {
             styleOverrides: {

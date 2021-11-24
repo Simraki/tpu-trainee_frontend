@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Autocomplete, ButtonProps, Chip, Grid, InputAdornment, styled, Typography } from '@mui/material'
 import UserTextField from '../../shared/components/UserTextField'
 import { observer } from 'mobx-react'
@@ -30,6 +30,8 @@ const ActiveToggleButton = styled(ToggleButton)<ButtonProps>(({theme}) => ({
 
 const EditStudentProfile: FC = () => {
 
+    const [dateType, setDateType] = useState('text')
+
     return (
         <>
             <Typography
@@ -56,11 +58,12 @@ const EditStudentProfile: FC = () => {
                     <UserTextField label={'Отчество'}/>
                     <UserTextField label={'Дата рождения'}
                                    inputProps={{
-                                       type: 'date',
-                                       inputProps: {
-                                           style: {
-                                               color: '#a4a4a4',
-                                           },
+                                       type: dateType,
+                                       onFocus: () => setDateType('date'),
+                                       onBlur: (e) => {
+                                           if (!e.currentTarget.value) {
+                                               setDateType('text')
+                                           }
                                        },
                                    }}/>
                     <Autocomplete options={['ТПУ', 'ТГУ']}
