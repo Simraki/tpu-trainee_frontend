@@ -9,15 +9,15 @@ export interface TitleTable {
 
 interface StyledTableHeadProps {
     titles: TitleTable[]
-    color?: 'primary' | 'grey'
+    color?: 'primary' | 'default'
     sxHead?: SxProps<Theme>
 }
 
-const StyledTableHead: FC<StyledTableHeadProps> = ({titles, color = 'grey', sxHead}) => {
+const StyledTableHead: FC<StyledTableHeadProps> = ({titles, color = 'default', sxHead}) => {
 
     let sx: SxProps<Theme> = {}
 
-    if (color === 'grey') {
+    if (color === 'default') {
         sx = {
             color: '#39847D',
             bgcolor: '#EBEBEB',

@@ -66,7 +66,7 @@ const StudentInfoTab: FC = () => {
         <>
             <TableContainer component={Paper} sx={{borderRadius: 2}}>
                 <Table size={'small'}>
-                    <StyledTableHead titles={titles} color={'grey'}/>
+                    <StyledTableHead titles={titles} color={'default'}/>
                     <TableBody>
                         {applications.map((el, ix) => (
                             <TableRow key={ix}>

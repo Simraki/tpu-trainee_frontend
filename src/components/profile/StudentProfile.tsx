@@ -94,7 +94,7 @@ const StudentProfile = () => {
                                 position: 'relative',
                             }}>
                                 <ProfileIcon sx={{fontSize: theme => theme.typography.pxToRem(120)}}/>
-                                <IconButton color={'primary'} style={{
+                                <IconButton style={{
                                     position: 'absolute',
                                     bottom: 4,
                                     right: 4,
@@ -120,10 +120,10 @@ const StudentProfile = () => {
                         <Box pt={5}>
                             <TabContext value={value.toString()}>
                                 <TabPanel value={'0'} sx={{p: 0}}>
-                                    <StudentApplicationsTab/>
-                                </TabPanel>
-                                <TabPanel value={'1'}>
                                     <StudentInfoTab/>
+                                </TabPanel>
+                                <TabPanel value={'1'} sx={{p: 0}}>
+                                    <StudentApplicationsTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{mt: -5}}>
                                     <StudentInfoTab/>
