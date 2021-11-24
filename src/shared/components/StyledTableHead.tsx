@@ -7,7 +7,7 @@ export interface TitleTable {
     span?: number
 }
 
-interface StyledTableHeadProps {
+export interface StyledTableHeadProps {
     titles: TitleTable[]
     color?: 'primary' | 'default'
     sxHead?: SxProps<Theme>

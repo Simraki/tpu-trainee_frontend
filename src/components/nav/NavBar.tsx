@@ -32,7 +32,7 @@ const NavBar: FC = () => {
         },
         {
             name: 'Вакансии',
-            route: routes.todos,
+            route: routes.vacancies,
             icon: <Announcement style={{color: 'white'}}/>,
             isActive: false,
         },
@@ -44,7 +44,7 @@ const NavBar: FC = () => {
         },
         {
             name: 'Мероприятия',
-            route: routes.home,
+            route: routes.todos,
             icon: <PriceChange style={{color: 'white'}}/>,
             isActive: false,
         },
