@@ -1,4 +1,4 @@
-import { createTheme, Theme, typographyClasses } from '@mui/material'
+import { createTheme, Theme } from '@mui/material'
 import { grey } from '@mui/material/colors'
 import shadows from '@mui/material/styles/shadows'
 
@@ -107,7 +107,7 @@ const theme: Theme = createTheme({
                     color: '#39847D',
                     fontWeight: 600,
                     letterSpacing: '0.05rem',
-                    fontSize: '0.8125rem'
+                    fontSize: '0.8125rem',
                 },
             },
         },
@@ -119,8 +119,8 @@ const theme: Theme = createTheme({
                     fontSize: '0.875rem',
                     '.MuiTableCell-root': {
                         paddingTop: 10,
-                        paddingBottom: 10
-                    }
+                        paddingBottom: 10,
+                    },
                 },
             },
         },

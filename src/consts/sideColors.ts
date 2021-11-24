@@ -1,4 +1,4 @@
-import { deepPurple, red, indigo, deepOrange } from '@mui/material/colors'
+import { deepOrange, deepPurple, indigo, red } from '@mui/material/colors'
 
 const sideColors = [deepPurple, red, indigo, deepOrange]
 

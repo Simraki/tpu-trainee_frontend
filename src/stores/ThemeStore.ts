@@ -4,8 +4,8 @@ import theme from '../consts/theme'
 import { green, orange } from '@mui/material/colors'
 
 class ThemeStore {
-    private forTest = false
     theme: Theme = createTheme(theme)
+    private forTest = false
 
     constructor() {
         makeObservable(this, {
