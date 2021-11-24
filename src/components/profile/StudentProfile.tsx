@@ -10,6 +10,7 @@ import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../shared/components/SectionWithTitle'
 import StudentInfoTab from './student/StudentInfoTab'
 import StudentApplicationsTab from './student/StudentApplicationsTab'
+import { linearGradient } from '../../consts/sideColors'
 
 const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
@@ -49,7 +50,7 @@ const StudentProfile = () => {
     return (
         <>
             <Box mx={-10} mt={-3} style={{
-                background: 'linear-gradient(90deg, #06c274 0%, #0a999f 100%)',
+                background: linearGradient,
             }}>
                 <Box px={10} pt={6}>
                     <Stack direction={'row'} justifyContent={'space-between'}
@@ -119,13 +120,13 @@ const StudentProfile = () => {
                     <Grid item xs={8}>
                         <Box pt={5}>
                             <TabContext value={value.toString()}>
-                                <TabPanel value={'0'} sx={{p: 0}}>
+                                <TabPanel value={'0'} sx={{p: 0, pl: 2}}>
                                     <StudentInfoTab/>
                                 </TabPanel>
-                                <TabPanel value={'1'} sx={{p: 0}}>
+                                <TabPanel value={'1'} sx={{p: 0, pl: 2}}>
                                     <StudentApplicationsTab/>
                                 </TabPanel>
-                                <TabPanel value={'2'} sx={{mt: -5}}>
+                                <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
                                     <StudentInfoTab/>
                                 </TabPanel>
                             </TabContext>

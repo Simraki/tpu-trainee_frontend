@@ -38,7 +38,7 @@ const NavBar: FC = () => {
         },
         {
             name: 'Проекты',
-            route: routes.tests,
+            route: routes.vacancyInfo,
             icon: <CarRental style={{color: 'white'}}/>,
             isActive: false,
         },

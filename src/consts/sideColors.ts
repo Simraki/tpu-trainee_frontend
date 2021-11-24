@@ -24,3 +24,5 @@ export const textChipColors: string[] = [
     '#5B21B6',
     '#9D174D',
 ]
+
+export const linearGradient = 'linear-gradient(90deg, #06c274 0%, #0a999f 100%)'

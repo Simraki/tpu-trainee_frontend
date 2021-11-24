@@ -1,14 +1,12 @@
 import React from 'react'
-import { MobxRouter, startRouter } from '@simraki/mobx-router'
 import { inject, InjectorContext } from 'react-ioc'
 import RootStore from './stores/RootStore'
-import routes from './consts/routes'
 import { ThemeProvider } from '@emotion/react'
-import { Box, CssBaseline } from '@mui/material'
+import { CssBaseline } from '@mui/material'
 import { observer } from 'mobx-react'
 import UserGlobalStyles from './UserGlobalStyles'
 import { withDependencies } from './hocs/withDependencies'
-import NavBar from './components/nav/NavBar'
+import Main from './components/Main'
 
 
 class App extends React.PureComponent {
@@ -17,19 +15,15 @@ class App extends React.PureComponent {
     private store = inject<RootStore>(this, RootStore)
 
     render() {
-        startRouter(routes, this.store)
 
-        // TODO Перенести функциональные компоненты в Main
+        const {themeStore} = this.store
 
         return (
             <React.StrictMode>
-                <ThemeProvider theme={this.store.themeStore.theme}>
+                <ThemeProvider theme={themeStore.theme}>
                     <CssBaseline/>
-                    <UserGlobalStyles theme={this.store.themeStore.theme}/>
-                    <NavBar/>
-                    <Box component={'main'} p={3} px={10}>
-                        <MobxRouter store={this.store}/>
-                    </Box>
+                    <UserGlobalStyles theme={themeStore.theme}/>
+                    <Main/>
                 </ThemeProvider>
             </React.StrictMode>)
     }
