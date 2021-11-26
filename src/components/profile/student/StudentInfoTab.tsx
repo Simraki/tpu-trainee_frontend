@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Chip, Typography } from '@mui/material'
+import { Chip, Stack, Typography } from '@mui/material'
 import { bgChipColors, textChipColors } from '../../../consts/sideColors'
 import GreyRoundedButton from '../../../shared/components/GreyRoundedButton'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
@@ -11,8 +11,7 @@ const StudentInfoTab: FC = () => {
     const tags: string[] = ['React', 'Java', 'JavaScript', 'Kotlin', 'React Native', 'C#', 'MySQL', 'Git']
 
     return (
-        <>
-
+        <Stack spacing={4}>
             <SectionWithTitle title={'Резюме'} mt={0}>
                 <Typography variant={'body1'}>ФИО: Иванов Иван Иванович</Typography>
                 <Typography variant={'body1'}>Дата рождения: 12.12.2000</Typography>
@@ -48,7 +47,7 @@ const StudentInfoTab: FC = () => {
                     DOC
                 </GreyRoundedButton>
             </SectionWithTitle>
-        </>
+        </Stack>
     )
 }
 

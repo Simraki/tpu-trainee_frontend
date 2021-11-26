@@ -11,6 +11,7 @@ import SectionWithTitle from '../../shared/components/SectionWithTitle'
 import StudentInfoTab from './student/StudentInfoTab'
 import StudentApplicationsTab from './student/StudentApplicationsTab'
 import { linearGradient } from '../../consts/sideColors'
+import CompanyInfoTab from './company/CompanyInfoTab'
 
 const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
@@ -127,7 +128,7 @@ const StudentProfile = () => {
                                     <StudentApplicationsTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
-                                    <StudentInfoTab/>
+                                    <CompanyInfoTab/>
                                 </TabPanel>
                             </TabContext>
                         </Box>
