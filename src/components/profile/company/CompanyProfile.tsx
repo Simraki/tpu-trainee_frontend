@@ -1,0 +1,140 @@
+import React, { useState } from 'react'
+import { Box, Button, ButtonProps, Grid, IconButton, Paper, Stack, styled, Tab, Tabs, Typography } from '@mui/material'
+import { observer } from 'mobx-react'
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined'
+import ProfileIcon from '../../../shared/components/ProfileIcon'
+import { TabContext, TabPanel } from '@mui/lab'
+import SectionWithTitle from '../../../shared/components/SectionWithTitle'
+import CompanyInfoTab from './CompanyInfoTab'
+import { linearGradient } from '../../../consts/sideColors'
+
+const HeaderButton = styled((props: ButtonProps) =>
+    <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
+    padding: 0,
+    borderRadius: theme.shape.borderRadius,
+    marginRight: theme.spacing(2),
+    height: theme.spacing(4),
+    minWidth: theme.spacing(6),
+    width: theme.spacing(6),
+}))
+
+const StyledTab = styled(Tab)(({theme}) => ({
+    textTransform: 'none',
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(18),
+    marginRight: theme.spacing(1),
+    minWidth: theme.spacing(20),
+    color: 'white',
+    background: '#39847D',
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    '&.Mui-selected': {
+        color: '#39847D',
+        background: '#F1F5F9',
+    },
+}))
+
+
+const StudentProfile = () => {
+
+    const [value, setValue] = useState(0)
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue)
+    }
+
+    return (
+        <>
+            <Box mx={-10} mt={-3} style={{
+                background: linearGradient,
+            }}>
+                <Box px={10} pt={6}>
+                    <Stack direction={'row'} justifyContent={'space-between'}
+                           spacing={1} alignItems={'center'}>
+                        <Typography
+                            variant={'h4'}
+                            sx={{
+                                color: 'white',
+                                fontWeight: 800,
+                            }}>
+                            Компания {'\"Name\"'}
+                        </Typography>
+                        <span>
+                            <HeaderButton title={'???'}><FileDownloadOutlinedIcon/></HeaderButton>
+                            <HeaderButton title={'???'}><VisibilityOutlinedIcon/></HeaderButton>
+                            <HeaderButton title={'???'}><EditOutlinedIcon/></HeaderButton>
+                        </span>
+                    </Stack>
+                    <Grid container>
+                        <Grid item xs={2}/>
+                        <Grid item xs>
+                            <Tabs TabIndicatorProps={{hidden: true}} value={value} onChange={handleChange}
+                                  sx={{mt: 15}}>
+                                <StyledTab label="Информация"/>
+                                <StyledTab label="Вакансии"/>
+                                <StyledTab label="Заявки"/>
+                            </Tabs>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
+            <>
+                <Grid container spacing={4}>
+                    <Grid item xs={2}>
+                        <Stack spacing={4} sx={{mt: -15}}>
+                            <Paper elevation={3} style={{
+                                aspectRatio: '1',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 4,
+                                position: 'relative',
+                            }}>
+                                <ProfileIcon sx={{fontSize: theme => theme.typography.pxToRem(120)}}/>
+                                <IconButton style={{
+                                    position: 'absolute',
+                                    bottom: 4,
+                                    right: 4,
+                                }}>
+                                    <FileUploadOutlinedIcon fontSize={'medium'}/>
+                                </IconButton>
+                                {/*<FileUploadOutlinedIcon fontSize={'medium'} strokeWidth={1} style={{*/}
+                                {/*    position: 'absolute',*/}
+                                {/*    bottom: 4,*/}
+                                {/*    right: 4,*/}
+                                {/*}}/>*/}
+                            </Paper>
+                            <Button variant={'contained'} color={'secondary'}>Создать вакансию</Button>
+                            <SectionWithTitle title={'Контактные данные'}>
+                                <Typography variant={'body1'}>+7 (800) 111-22-33</Typography>
+                                <Typography variant={'body1'}>name@mail.ru</Typography>
+                                <br/>
+                                <Typography variant={'body1'}>Иванов Иван Иванович</Typography>
+                            </SectionWithTitle>
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Box pt={5}>
+                            <TabContext value={value.toString()}>
+                                <TabPanel value={'0'} sx={{p: 0, pl: 2}}>
+                                    <CompanyInfoTab/>
+                                </TabPanel>
+                                <TabPanel value={'1'} sx={{p: 0, pl: 2}}>
+                                    <CompanyInfoTab/>
+                                </TabPanel>
+                                <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
+                                    <CompanyInfoTab/>
+                                </TabPanel>
+                            </TabContext>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </>
+        </>
+    )
+}
+
+export default observer(StudentProfile)

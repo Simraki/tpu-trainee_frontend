@@ -5,13 +5,12 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined'
-import ProfileIcon from '../../shared/components/ProfileIcon'
+import ProfileIcon from '../../../shared/components/ProfileIcon'
 import { TabContext, TabPanel } from '@mui/lab'
-import SectionWithTitle from '../../shared/components/SectionWithTitle'
-import StudentInfoTab from './student/StudentInfoTab'
-import StudentApplicationsTab from './student/StudentApplicationsTab'
-import { linearGradient } from '../../consts/sideColors'
-import CompanyInfoTab from './company/CompanyInfoTab'
+import SectionWithTitle from '../../../shared/components/SectionWithTitle'
+import StudentInfoTab from './StudentInfoTab'
+import StudentApplicationsTab from './StudentApplicationsTab'
+import { linearGradient } from '../../../consts/sideColors'
 
 const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
@@ -128,7 +127,7 @@ const StudentProfile = () => {
                                     <StudentApplicationsTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
-                                    <CompanyInfoTab/>
+                                    <StudentInfoTab/>
                                 </TabPanel>
                             </TabContext>
                         </Box>
