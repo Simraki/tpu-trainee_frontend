@@ -118,7 +118,7 @@ const CompanyProfile = () => {
                             </SectionWithTitle>
                         </Stack>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs>
                         <Box pt={5}>
                             <TabContext value={value.toString()}>
                                 <TabPanel value={'0'} sx={{p: 0, pl: 2}}>
@@ -133,17 +133,17 @@ const CompanyProfile = () => {
                             </TabContext>
                         </Box>
                     </Grid>
-                    <Grid item xs={2}>
-                        <Box pt={5}>
-                            <TabContext value={value.toString()}>
-                                <TabPanel value={'0'} sx={{p: 0}}/>
-                                <TabPanel value={'1'} sx={{p: 0}}>
-                                    <CompanyVacanciesMenu/>
-                                </TabPanel>
-                                <TabPanel value={'2'} sx={{p: 0}}/>
-                            </TabContext>
-                        </Box>
-                    </Grid>
+                    {/*<Grid item xs={2}>*/}
+                    {/*    <Box pt={5}>*/}
+                    {/*        <TabContext value={value.toString()}>*/}
+                    {/*            <TabPanel value={'0'} sx={{p: 0}}/>*/}
+                    {/*            <TabPanel value={'1'} sx={{p: 0}}>*/}
+                    {/*                <CompanyVacanciesMenu/>*/}
+                    {/*            </TabPanel>*/}
+                    {/*            <TabPanel value={'2'} sx={{p: 0}}/>*/}
+                    {/*        </TabContext>*/}
+                    {/*    </Box>*/}
+                    {/*</Grid>*/}
                 </Grid>
             </>
         </>
