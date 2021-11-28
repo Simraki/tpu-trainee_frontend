@@ -39,13 +39,13 @@ const VacancyInfo: FC = () => {
                         <Typography
                             variant={'h6'}
                             color={'white'}
-                            fontWeight={500}>
+                        >
                             В компании {'\"Name\"'}
                         </Typography>
                         <Typography
                             variant={'h6'}
                             color={'white'}
-                            fontWeight={500}>
+                        >
                             ₽ 20 000 - 30 000
                         </Typography>
                         <Button variant={'contained'} color={'secondary'} sx={{width: theme => theme.spacing(33)}}>
@@ -67,7 +67,7 @@ const VacancyInfo: FC = () => {
                 <Stack spacing={2} sx={{mt: 2, width: 0.6}}>
                     <section>
                         {features.map((el, ix) => (
-                            <Typography variant={'body2'} key={ix} mr={4} display={'inline-block'} fontWeight={500}>
+                            <Typography variant={'body2'} key={ix} mr={4} display={'inline-block'}>
                                 {el}
                             </Typography>
                         ))}

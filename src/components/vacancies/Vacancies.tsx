@@ -121,7 +121,7 @@ const Vacancies: FC = () => {
                                 </TableCell>
                                 <TableCell>{el.date}</TableCell>
                                 <TableCell style={{color: '#9C9C9C'}}>
-                                    <Button sx={{color: 'inherit'}}>{el.status}</Button>
+                                    <Button sx={{color: 'inherit'}}>Подробнее</Button>
                                 </TableCell>
                             </TableRow>
                         ))}

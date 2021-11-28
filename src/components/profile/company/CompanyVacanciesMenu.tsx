@@ -2,14 +2,20 @@ import React, { FC } from 'react'
 import { ListItemIcon, MenuItem, MenuList, Typography } from '@mui/material'
 import {
     AddBoxOutlined,
-    AddOutlined,
     ArchiveOutlined,
     AssignmentOutlined,
     EditOutlined,
     FormatListBulletedOutlined,
 } from '@mui/icons-material'
+import { observer } from 'mobx-react'
+import { useInstance } from 'react-ioc'
+import RootStore from '../../../stores/RootStore'
+import routes from '../../../consts/routes'
 
 const CompanyVacanciesMenu: FC = () => {
+
+    const store = useInstance(RootStore)
+
     return (
         <MenuList>
             <MenuItem>
@@ -24,7 +30,7 @@ const CompanyVacanciesMenu: FC = () => {
                 </ListItemIcon>
                 <Typography variant="inherit">Редактирование</Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem onClick={() => store.router.goTo(routes.vacancyApplications)}>
                 <ListItemIcon>
                     <FormatListBulletedOutlined fontSize="small"/>
                 </ListItemIcon>
@@ -46,4 +52,4 @@ const CompanyVacanciesMenu: FC = () => {
     )
 }
 
-export default CompanyVacanciesMenu
+export default observer(CompanyVacanciesMenu)

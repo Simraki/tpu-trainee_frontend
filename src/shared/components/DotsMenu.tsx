@@ -11,7 +11,8 @@ const DotsMenu = styled((props: MenuProps) =>
               vertical: 'top',
               horizontal: 'right',
           }}
-          open={props.open}/>)(({theme}) => ({
+          open={props.open}/>)
+(({theme}) => ({
     '& .MuiPaper-root': {
         boxShadow: theme.shadows[2],
         '& .MuiMenu-list': {
