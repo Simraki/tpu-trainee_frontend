@@ -4,7 +4,7 @@ import { Box, BoxProps, Typography } from '@mui/material'
 
 const SectionWithTitle: FC<BoxProps> = ({title, children, ...boxProps}) => (
     <Box {...boxProps} component={'section'}>
-        <Typography variant={'subtitle1'} sx={{fontWeight: 700, mb: 1}}>
+        <Typography variant={'subtitle1'} mb={1}>
             {title}
         </Typography>
         {children}

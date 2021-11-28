@@ -20,6 +20,8 @@ const VacancyInfo: FC = () => {
         'Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем массового участия',
     ]
 
+    // TODO добавить SectionWithTitle
+
     return (
         <>
             <Box mx={-10} mt={-3} style={{
@@ -83,7 +85,7 @@ const VacancyInfo: FC = () => {
                         ))}
                     </section>
                     <section>
-                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} mb={1}>
                             Описание вакансии:
                         </Typography>
                         <Typography variant={'body1'}>
@@ -94,7 +96,7 @@ const VacancyInfo: FC = () => {
                         </Typography>
                     </section>
                     <section>
-                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} mb={1}>
                             Наши преимущества:
                         </Typography>
                         <ul style={{margin: 0}}>
@@ -106,7 +108,7 @@ const VacancyInfo: FC = () => {
                         </ul>
                     </section>
                     <section>
-                        <Typography variant={'subtitle1'} fontWeight={700} mb={1}>
+                        <Typography variant={'subtitle1'} mb={1}>
                             Требования:
                         </Typography>
                         <ul style={{margin: 0}}>

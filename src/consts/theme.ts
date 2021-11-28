@@ -36,6 +36,9 @@ const theme: Theme = createTheme({
     spacing: spacing,
     typography: {
         fontFamily: '\'Inter\', sans-serif',
+        subtitle1: {
+            fontWeight: 700
+        }
     },
     shape: {
         borderRadius: 5,

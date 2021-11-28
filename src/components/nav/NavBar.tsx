@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react'
-import { AppBar, Box, Container, Grid, Stack, styled, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Grid, Stack, styled, Toolbar, Typography } from '@mui/material'
 import { Announcement, CarRental, Home, PriceChange } from '@mui/icons-material'
 import { useInstance } from 'react-ioc'
 import { observer } from 'mobx-react'
@@ -44,7 +44,7 @@ const NavBar: FC = () => {
         },
         {
             name: 'Мероприятия',
-            route: routes.todos,
+            route: routes.edit,
             icon: <PriceChange style={{color: 'white'}}/>,
             isActive: false,
         },
@@ -69,19 +69,17 @@ const NavBar: FC = () => {
                                 <Typography
                                     noWrap
                                     variant={'subtitle1'}
-                                    style={{
-                                        fontWeight: 600,
-                                        color: 'white',
-                                    }}>
+                                    fontWeight={600}
+                                    color={'white'}
+                                >
                                     СТАЖИРОВКИ
                                 </Typography>
                                 <Typography
                                     noWrap
                                     variant={'subtitle2'}
-                                    style={{
-                                        fontWeight: 500,
-                                        color: 'white',
-                                    }}>
+                                    fontWeight={500}
+                                    color={'white'}
+                                >
                                     ТОМСКИЙ ПОЛИТЕХ
                                 </Typography>
                             </Box>
@@ -90,23 +88,23 @@ const NavBar: FC = () => {
                     <Grid item container justifyContent={'center'} xs={6}>
                         {menuItems.map(el => {
                                 return el.isActive ?
-                                    (<RoundedButton variant={'contained'}
-                                                    sx={{
-                                                        color: theme => theme.palette.common.white,
-                                                    }}
-                                                    onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                    <RoundedButton variant={'contained'}
+                                                   sx={{
+                                                       color: theme => theme.palette.common.white,
+                                                   }}
+                                                   onClick={() => store.router.goTo(el.route)} key={el.name}>
                                         {el.name}
-                                    </RoundedButton>)
+                                    </RoundedButton>
                                     :
-                                    (<TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                    <TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
                                         {el.name}
-                                    </TextButton>)
+                                    </TextButton>
                             },
                         )}
                     </Grid>
                     <Grid item xs={3}>
                         <Stack direction={'row'} justifyContent={'flex-end'}>
-                            <TextButton onClick={() => console.log('NAME Pr')}
+                            <TextButton onClick={() => store.router.goTo(routes.studentProfile)}
                                         endIcon={<AccountCircleOutlinedIcon/>}>
                                 Name
                             </TextButton>

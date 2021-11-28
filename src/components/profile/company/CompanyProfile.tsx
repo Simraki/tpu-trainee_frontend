@@ -10,6 +10,8 @@ import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
 import CompanyInfoTab from './CompanyInfoTab'
 import { linearGradient } from '../../../consts/sideColors'
+import CompanyVacanciesTab from './CompanyVacanciesTab'
+import CompanyVacanciesMenu from './CompanyVacanciesMenu'
 
 const HeaderButton = styled((props: ButtonProps) =>
     <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
@@ -38,9 +40,9 @@ const StyledTab = styled(Tab)(({theme}) => ({
 }))
 
 
-const StudentProfile = () => {
+const CompanyProfile = () => {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(1)
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
@@ -123,11 +125,22 @@ const StudentProfile = () => {
                                     <CompanyInfoTab/>
                                 </TabPanel>
                                 <TabPanel value={'1'} sx={{p: 0, pl: 2}}>
-                                    <CompanyInfoTab/>
+                                    <CompanyVacanciesTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
                                     <CompanyInfoTab/>
                                 </TabPanel>
+                            </TabContext>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <Box pt={5}>
+                            <TabContext value={value.toString()}>
+                                <TabPanel value={'0'} sx={{p: 0}}/>
+                                <TabPanel value={'1'} sx={{p: 0}}>
+                                    <CompanyVacanciesMenu/>
+                                </TabPanel>
+                                <TabPanel value={'2'} sx={{p: 0}}/>
                             </TabContext>
                         </Box>
                     </Grid>
@@ -137,4 +150,4 @@ const StudentProfile = () => {
     )
 }
 
-export default observer(StudentProfile)
+export default observer(CompanyProfile)

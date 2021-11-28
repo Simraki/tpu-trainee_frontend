@@ -36,7 +36,9 @@ const CompanyInfoTab: FC = () => {
                     :
                     <>
                         <Typography variant={'body1'}>Вы еще не заполнили профиль</Typography>
-                        <Button variant={'contained'} onClick={() => setFull(true)} fullWidth={false}>Заполнить профиль</Button>
+                        <Button variant={'contained'} onClick={() => setFull(true)} fullWidth={false}>
+                            Заполнить профиль
+                        </Button>
                     </>
             }
         </Stack>

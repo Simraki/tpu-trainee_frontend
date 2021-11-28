@@ -17,10 +17,6 @@ const routes = {
         path: '/sprofile',
         component: <StudentProfile/>,
     }),
-    companyProfile: new Route<RootStore>({
-        path: '/cprofile',
-        component: <CompanyProfile/>,
-    }),
     vacancies: new Route<RootStore>({
         path: '/vacancies',
         component: <Vacancies/>,
@@ -29,8 +25,8 @@ const routes = {
         path: '/vacancyInfo',
         component: <VacancyInfo/>,
     }),
-    todos: new Route<RootStore>({
-        path: '/todos',
+    edit: new Route<RootStore>({
+        path: '/edit',
         component: <Edit/>,
     }),
 }
