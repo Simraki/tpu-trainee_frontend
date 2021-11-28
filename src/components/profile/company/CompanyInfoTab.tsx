@@ -25,18 +25,20 @@ const CompanyInfoTab: FC = () => {
                         </SectionWithTitle>
                         <SectionWithTitle title={'Миссия'}>
                             <ul style={{margin: 0}}>
-                                {items.map((el, ix) => (
-                                    <Typography component={'li'} variant={'body1'} key={ix}>
-                                        {el}
-                                    </Typography>
-                                ))}
+                                {
+                                    items.map((el, ix) => (
+                                        <Typography component={'li'} variant={'body1'} key={ix}>
+                                            {el}
+                                        </Typography>
+                                    ))
+                                }
                             </ul>
                         </SectionWithTitle>
                     </>
                     :
                     <>
                         <Typography variant={'body1'}>Вы еще не заполнили профиль</Typography>
-                        <Button variant={'contained'} onClick={() => setFull(true)} fullWidth={false}>
+                        <Button variant={'contained'} onClick={() => setFull(true)}>
                             Заполнить профиль
                         </Button>
                     </>

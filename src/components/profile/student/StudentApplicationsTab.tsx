@@ -66,34 +66,34 @@ const StudentInfoTab: FC = () => {
     return (
         <>
             <StyledTable titles={titles} color={'default'}>
-                {applications.map((el, ix) => (
-                    <TableRow key={ix} hover>
-                        <TableCell align={'center'}>
-                            {
-                                el.icon
-                                    ?
-                                    (<Avatar sx={{bgcolor: 'white'}}>
-                                        {el.icon}
-                                    </Avatar>)
-                                    :
-                                    (<Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
-                                        {el.companyName[0]}
-                                    </Avatar>)
-                            }
-
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                            <div>{el.companyName}</div>
-                            <span style={{color: '#6B7280'}}>{el.companyEmail}</span>
-                        </TableCell>
-                        <TableCell>
-                            <div>{el.vacancyName}</div>
-                            <span style={{color: '#6B7280'}}>{el.vacancyDesc}</span>
-                        </TableCell>
-                        <TableCell>{el.date}</TableCell>
-                        <TableCell style={{color: '#9C9C9C'}}>{el.status}</TableCell>
-                    </TableRow>
-                ))}
+                {
+                    applications.map((el, ix) => (
+                        <TableRow key={ix} hover>
+                            <TableCell align={'center'}>
+                                {
+                                    el.icon ?
+                                        <Avatar sx={{bgcolor: 'white'}}>
+                                            {el.icon}
+                                        </Avatar>
+                                        :
+                                        <Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
+                                            {el.companyName[0]}
+                                        </Avatar>
+                                }
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                <div>{el.companyName}</div>
+                                <span style={{color: '#6B7280'}}>{el.companyEmail}</span>
+                            </TableCell>
+                            <TableCell>
+                                <div>{el.vacancyName}</div>
+                                <span style={{color: '#6B7280'}}>{el.vacancyDesc}</span>
+                            </TableCell>
+                            <TableCell>{el.date}</TableCell>
+                            <TableCell style={{color: '#9C9C9C'}}>{el.status}</TableCell>
+                        </TableRow>
+                    ))
+                }
             </StyledTable>
         </>
     )

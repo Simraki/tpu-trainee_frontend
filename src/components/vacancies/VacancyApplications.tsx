@@ -132,59 +132,63 @@ const VacancyApplications: FC = () => {
                 </Stack>
             </GradientScreen>
             <Box mt={3} mb={2}>
-                {tags.map((el, index) => (
-                    <Chip size={'small'}
-                          sx={{
-                              bgcolor: bgChipColors[index % bgChipColors.length],
-                              color: textChipColors[index % textChipColors.length],
-                              mr: 1.5,
-                          }}
-                          key={el}
-                          label={el}
-                    />
-                ))}
+                {
+                    tags.map((el, index) => (
+                        <Chip size={'small'}
+                              sx={{
+                                  bgcolor: bgChipColors[index % bgChipColors.length],
+                                  color: textChipColors[index % textChipColors.length],
+                                  mr: 1.5,
+                              }}
+                              key={el}
+                              label={el}
+                        />
+                    ))
+                }
                 <IconButton>
                     <AddOutlined/>
                 </IconButton>
             </Box>
             <Box mt={2}>
                 <StyledTable titles={titles} color={'primary'}>
-                    {applications
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((el, ix) => (
-                            <TableRow key={ix} hover>
-                                <TableCell align={'center'}>
-                                    {
-                                        el.icon ?
-                                            <Avatar sx={{bgcolor: 'white'}}>
-                                                {el.icon}
-                                            </Avatar>
-                                            :
-                                            <Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
-                                                {el.studentName[0].toUpperCase()}
-                                            </Avatar>
-                                    }
-                                </TableCell>
-                                <TableCell component="th" scope="row">
-                                    <div>{el.studentName}</div>
-                                    <span style={{color: '#6B7280'}}>{el.studentEmail}</span>
-                                </TableCell>
-                                <TableCell>
-                                    <TableDownloadButton>
-                                        {ix % 2 ? 'PDF' : 'DOC'}
-                                    </TableDownloadButton>
-                                </TableCell>
-                                <TableCell>{el.date}</TableCell>
-                                <TableCell>
-                                    <IconButton color={'error'}>
-                                        <CloseOutlined/>
-                                    </IconButton>
-                                    <IconButton color={'success'}>
-                                        <DoneOutlined/>
-                                    </IconButton>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                    {
+                        applications
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((el, ix) => (
+                                <TableRow key={ix} hover>
+                                    <TableCell align={'center'}>
+                                        {
+                                            el.icon ?
+                                                <Avatar sx={{bgcolor: 'white'}}>
+                                                    {el.icon}
+                                                </Avatar>
+                                                :
+                                                <Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
+                                                    {el.studentName[0].toUpperCase()}
+                                                </Avatar>
+                                        }
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <div>{el.studentName}</div>
+                                        <span style={{color: '#6B7280'}}>{el.studentEmail}</span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableDownloadButton>
+                                            {ix % 2 ? 'PDF' : 'DOC'}
+                                        </TableDownloadButton>
+                                    </TableCell>
+                                    <TableCell>{el.date}</TableCell>
+                                    <TableCell>
+                                        <IconButton color={'error'}>
+                                            <CloseOutlined/>
+                                        </IconButton>
+                                        <IconButton color={'success'}>
+                                            <DoneOutlined/>
+                                        </IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                    }
                 </StyledTable>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}

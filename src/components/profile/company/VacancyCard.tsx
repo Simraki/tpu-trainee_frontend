@@ -16,6 +16,7 @@ const VacancyPaper = styled((props) => <Paper elevation={3} {...props}/>)(({them
 
 
 const VacancyCard: FC<{ vacancy: Vacancy }> = ({vacancy}) => {
+
     const [anchorEl, setAnchorEl] = React.useState<null | Element>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent) => {
@@ -33,19 +34,18 @@ const VacancyCard: FC<{ vacancy: Vacancy }> = ({vacancy}) => {
                         {vacancy.name}
                     </Typography>
                     {
-                        vacancy.applicationNum !== 0 && (
-                            <Box display={'inline-block'}
-                                 bgcolor={orange[500]}
-                                 color={'white'}
-                                 fontWeight={700}
-                                 borderRadius={'50%'}
-                                 width={'1.6em'}
-                                 lineHeight={'1.6em'}
-                                 textAlign={'center'}
-                            >
-                                {vacancy.applicationNum}
-                            </Box>
-                        )
+                        vacancy.applicationNum !== 0 &&
+                        <Box display={'inline-block'}
+                             bgcolor={orange[500]}
+                             color={'white'}
+                             fontWeight={700}
+                             borderRadius={'50%'}
+                             width={'1.6em'}
+                             lineHeight={'1.6em'}
+                             textAlign={'center'}
+                        >
+                            {vacancy.applicationNum}
+                        </Box>
                     }
                 </span>
                 <span>
@@ -67,19 +67,14 @@ const VacancyCard: FC<{ vacancy: Vacancy }> = ({vacancy}) => {
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon><CloseRounded color={'error'}/></ListItemIcon>
-                            <ListItemText sx={{color: theme => theme.palette.error.main}}>Удалить</ListItemText>
+                            <ListItemText primaryTypographyProps={{color: 'error'}}>Удалить</ListItemText>
                         </MenuItem>
                     </DotsMenu>
                 </span>
             </Stack>
             <Typography variant={'body1'} mb={1}>{`Требуемый опыт: ${vacancy.careerLevel}`}</Typography>
             <Typography variant={'body1'} mb={1}>{`Занятость: ${vacancy.schedule}`}</Typography>
-            <Typography variant={'body1'}
-                        fontWeight={500}
-                        mb={1}
-                        px={1}
-                        py={0.5}
-                        bgcolor={'#22DDCD7D'}
+            <Typography variant={'body1'} fontWeight={500} mb={1} px={1} py={0.5} bgcolor={'#22DDCD7D'}
                         borderRadius={1}
                         width={'fit-content'}
             >

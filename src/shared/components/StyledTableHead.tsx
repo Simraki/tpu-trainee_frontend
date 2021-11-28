@@ -22,16 +22,16 @@ const StyledTableHead: FC<StyledTableHeadProps> = ({titles, color = 'default', s
             color: '#39847D',
             bgcolor: '#EBEBEB',
             '.MuiTableRow-root': {
-                borderColor: '#EBEBEB'
-            }
+                borderColor: '#EBEBEB',
+            },
         }
     } else if (color === 'primary') {
         sx = {
             color: 'white',
             bgcolor: 'primary.main',
             '.MuiTableRow-root': {
-                borderColor: 'primary.main'
-            }
+                borderColor: 'primary.main',
+            },
         }
     }
 
@@ -40,7 +40,7 @@ const StyledTableHead: FC<StyledTableHeadProps> = ({titles, color = 'default', s
     return (
         <TableHead sx={sx}>
             <TableRow>
-                {titles.map(el => (
+                {titles.map((el) => (
                     <TableCell align={'left'} key={el.title} colSpan={el.span ?? 1}>{el.title}</TableCell>
                 ))}
             </TableRow>

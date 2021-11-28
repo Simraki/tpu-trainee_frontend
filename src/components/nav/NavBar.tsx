@@ -10,6 +10,7 @@ import tpu_logo from '../../asset/tpu_logo.png'
 import RoundedButton from '../../shared/components/RoundedButton'
 import { grey } from '@mui/material/colors'
 
+
 const TextButton = styled(RoundedButton)(({theme}) => ({
     color: theme.palette.common.white,
     background: 'transparent',
@@ -67,7 +68,6 @@ const NavBar: FC = () => {
                             <img src={tpu_logo} style={{width: 40, height: 40, borderRadius: 2}} alt={'TPU Logo'}/>
                             <Box ml={1}>
                                 <Typography
-                                    noWrap
                                     variant={'subtitle1'}
                                     fontWeight={600}
                                     color={'white'}
@@ -75,9 +75,7 @@ const NavBar: FC = () => {
                                     СТАЖИРОВКИ
                                 </Typography>
                                 <Typography
-                                    noWrap
                                     variant={'subtitle2'}
-                                    fontWeight={500}
                                     color={'white'}
                                 >
                                     ТОМСКИЙ ПОЛИТЕХ
@@ -86,26 +84,27 @@ const NavBar: FC = () => {
                         </Stack>
                     </Grid>
                     <Grid item container justifyContent={'center'} xs={6}>
-                        {menuItems.map(el => {
+                        {
+                            menuItems.map((el) => {
                                 return el.isActive ?
                                     <RoundedButton variant={'contained'}
-                                                   sx={{
-                                                       color: theme => theme.palette.common.white,
-                                                   }}
-                                                   onClick={() => store.router.goTo(el.route)} key={el.name}>
+                                                   sx={{color: theme => theme.palette.common.white}}
+                                                   onClick={() => store.router.goTo(el.route)} key={el.name}
+                                    >
                                         {el.name}
                                     </RoundedButton>
                                     :
                                     <TextButton onClick={() => store.router.goTo(el.route)} key={el.name}>
                                         {el.name}
                                     </TextButton>
-                            },
-                        )}
+                            })
+                        }
                     </Grid>
                     <Grid item xs={3}>
                         <Stack direction={'row'} justifyContent={'flex-end'}>
                             <TextButton onClick={() => store.router.goTo(routes.studentProfile)}
-                                        endIcon={<AccountCircleOutlinedIcon/>}>
+                                        endIcon={<AccountCircleOutlinedIcon/>}
+                            >
                                 Name
                             </TextButton>
                         </Stack>

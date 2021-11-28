@@ -20,59 +20,72 @@ const EditStudentTab: FC = () => {
                                    type: dateType,
                                    onFocus: () => setDateType('date'),
                                    onBlur: (e) => {
-                                       if (!e.currentTarget.value) {
-                                           setDateType('text')
-                                       }
+                                       !e.currentTarget.value && setDateType('text')
                                    },
-                               }}/>
+                               }}
+                />
                 <Autocomplete options={['ТПУ', 'ТГУ']}
                               renderInput={params => <UserTextField label={'Университет'}
-                                                                    inputProps={params}/>}/>
+                                                                    inputProps={params}/>
+                              }
+                />
                 <Autocomplete options={['1 курс', '2 курс']}
                               renderInput={params => <UserTextField label={'Курс'}
-                                                                    inputProps={params}/>}/>
+                                                                    inputProps={params}/>
+                              }
+                />
                 <Autocomplete multiple
                               filterSelectedOptions
                               options={['Django', 'React']}
+                              renderInput={params => <UserTextField label={'Технологический стек'}
+                                                                    inputProps={params}/>
+                              }
                               renderTags={(value: readonly string[], getTagProps) =>
                                   value.map((option: string, index: number) => (
                                       // eslint-disable-next-line react/jsx-key
                                       <Chip size={'small'}
-                                            style={{
-                                                background: bgChipColors[index % bgChipColors.length],
+                                            sx={{
+                                                bgcolor: bgChipColors[index % bgChipColors.length],
                                                 color: textChipColors[index % textChipColors.length],
                                             }}
                                             label={option} {...getTagProps({index})}/>
                                   ))
                               }
-                              renderInput={params => <UserTextField label={'Технологический стек'}
-                                                                    inputProps={params}/>}/>
-                <UserTextField label={'GitHub / GitLab'} inputProps={{
-                    type: 'url',
-                    InputProps: {
-                        startAdornment: <InputAdornment position={'start'}>https://</InputAdornment>,
-                    },
-                    placeholder: 'example.com',
-                }}/>
+                />
+                <UserTextField label={'GitHub / GitLab'}
+                               inputProps={{
+                                   type: 'url',
+                                   InputProps: {
+                                       startAdornment: <InputAdornment position={'start'}>https://</InputAdornment>,
+                                   },
+                                   placeholder: 'example.com',
+                               }}
+                />
             </Grid>
             <Grid item xs={6} sx={{pl: 2}}>
-                <UserTextField label={'О себе'} inputProps={{
-                    multiline: true,
-                    minRows: 5,
-                    maxRows: 5,
-                }}/>
-                <UserTextField label={'Дополнительная информация'} inputProps={{
-                    multiline: true,
-                    maxRows: 2,
-                }}/>
+                <UserTextField label={'О себе'}
+                               inputProps={{
+                                   multiline: true,
+                                   minRows: 5,
+                                   maxRows: 5,
+                               }}
+                />
+                <UserTextField label={'Дополнительная информация'}
+                               inputProps={{
+                                   multiline: true,
+                                   maxRows: 2,
+                               }}
+                />
                 <UserTextField label={'Адрес'}/>
-                <UserTextField label={'Номер телефона'} inputProps={{
-                    type: 'tel',
-                    InputProps: {
-                        startAdornment: <InputAdornment position={'start'}>+7</InputAdornment>,
-                    },
-                    placeholder: '999 999 99 99',
-                }}/>
+                <UserTextField label={'Номер телефона'}
+                               inputProps={{
+                                   type: 'tel',
+                                   InputProps: {
+                                       startAdornment: <InputAdornment position={'start'}>+7</InputAdornment>,
+                                   },
+                                   placeholder: '999 999 99 99',
+                               }}
+                />
                 <UserTextField label={'Email'} inputProps={{type: 'email'}}/>
                 <UserTextField label={'Пароль'} inputProps={{type: 'password'}}/>
                 <UserTextField label={'Повторите пароль'} inputProps={{type: 'password'}}/>

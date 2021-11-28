@@ -5,6 +5,7 @@ import { TitleTable } from '../../shared/components/StyledTableHead'
 import ProfileIcon from '../../shared/components/ProfileIcon'
 import StyledTable from '../../shared/components/StyledTable'
 
+
 const Vacancies: FC = () => {
 
     const [page, setPage] = React.useState(0)
@@ -81,50 +82,54 @@ const Vacancies: FC = () => {
     return (
         <>
             <Typography variant={'h4'} fontWeight={600} my={2}>Результаты поиска:</Typography>
-            {tags.map((el, index) => (
-                <Chip size={'small'}
-                      style={{
-                          background: bgChipColors[index % bgChipColors.length],
-                          color: textChipColors[index % textChipColors.length],
-                          marginRight: 12,
-                      }}
-                      key={el}
-                      label={el}/>
-            ))}
+            {
+                tags.map((el, index) => (
+                    <Chip size={'small'}
+                          sx={{
+                              bgcolor: bgChipColors[index % bgChipColors.length],
+                              color: textChipColors[index % textChipColors.length],
+                              mr: 1.5,
+                          }}
+                          key={el}
+                          label={el}
+                    />
+                ))
+            }
             <Box mt={2}>
                 <StyledTable titles={titles} color={'primary'}>
-                    {applications
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((el, ix) => (
-                            <TableRow key={ix} hover>
-                                <TableCell align={'center'}>
-                                    {
-                                        el.icon
-                                            ?
-                                            (<Avatar sx={{bgcolor: 'white'}}>
-                                                {el.icon}
-                                            </Avatar>)
-                                            :
-                                            (<Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
-                                                {el.companyName[0]}
-                                            </Avatar>)
-                                    }
+                    {
+                        applications
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((el, ix) => (
+                                <TableRow key={ix} hover>
+                                    <TableCell align={'center'}>
+                                        {
+                                            el.icon ?
+                                                <Avatar sx={{bgcolor: 'white'}}>
+                                                    {el.icon}
+                                                </Avatar>
+                                                :
+                                                <Avatar sx={{bgcolor: bgAvatarColors[ix % bgAvatarColors.length]}}>
+                                                    {el.companyName[0]}
+                                                </Avatar>
+                                        }
 
-                                </TableCell>
-                                <TableCell component="th" scope="row">
-                                    <div>{el.companyName}</div>
-                                    <span style={{color: '#6B7280'}}>{el.companyEmail}</span>
-                                </TableCell>
-                                <TableCell>
-                                    <div>{el.vacancyName}</div>
-                                    <span style={{color: '#6B7280'}}>{el.vacancyDesc}</span>
-                                </TableCell>
-                                <TableCell>{el.date}</TableCell>
-                                <TableCell style={{color: '#9C9C9C'}}>
-                                    <Button sx={{color: 'inherit'}}>Подробнее</Button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        <div>{el.companyName}</div>
+                                        <span style={{color: '#6B7280'}}>{el.companyEmail}</span>
+                                    </TableCell>
+                                    <TableCell>
+                                        <div>{el.vacancyName}</div>
+                                        <span style={{color: '#6B7280'}}>{el.vacancyDesc}</span>
+                                    </TableCell>
+                                    <TableCell>{el.date}</TableCell>
+                                    <TableCell style={{color: '#9C9C9C'}}>
+                                        <Button sx={{color: 'inherit'}}>Подробнее</Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                    }
                 </StyledTable>
                 <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}

@@ -1,5 +1,18 @@
 import React, { useState } from 'react'
-import { Box, Button, ButtonProps, Grid, IconButton, Paper, Stack, styled, Tab, Tabs, Typography } from '@mui/material'
+import {
+    Box,
+    Button,
+    ButtonProps,
+    Grid,
+    IconButton,
+    Paper,
+    Stack,
+    styled,
+    Tab,
+    Tabs,
+    Theme,
+    Typography,
+} from '@mui/material'
 import { observer } from 'mobx-react'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
@@ -10,10 +23,23 @@ import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
 import StudentInfoTab from './StudentInfoTab'
 import StudentApplicationsTab from './StudentApplicationsTab'
-import { linearGradient } from '../../../consts/sideColors'
+import GradientScreen from '../../../shared/components/GradientScreen'
+import { SxProps } from '@mui/system'
+
+
+const profilePaperSx: SxProps<Theme> = {
+    aspectRatio: '1',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 0.5,
+    position: 'relative',
+}
+
 
 const HeaderButton = styled((props: ButtonProps) =>
-    <Button variant={'contained'} color={'secondary'} {...props}/>)<ButtonProps>(({theme}) => ({
+    <Button variant={'contained'} color={'secondary'} {...props}/>)
+(({theme}) => ({
     padding: 0,
     borderRadius: theme.shape.borderRadius,
     marginRight: theme.spacing(2),
@@ -49,64 +75,49 @@ const StudentProfile = () => {
 
     return (
         <>
-            <Box mx={-10} mt={-3} style={{
-                background: linearGradient,
-            }}>
-                <Box px={10} pt={6}>
-                    <Stack direction={'row'} justifyContent={'space-between'}
-                           spacing={1} alignItems={'center'}>
-                        <Typography
-                            variant={'h4'}
-                            sx={{
-                                color: 'white',
-                                fontWeight: 800,
-                            }}>
-                            Добро пожаловать, Иванов Иван Иванович!
-                        </Typography>
-                        <span>
+            <GradientScreen pb={0}>
+                <Stack direction={'row'}
+                       justifyContent={'space-between'}
+                       alignItems={'center'}
+                       spacing={1}
+                >
+                    <Typography
+                        variant={'h4'}
+                        color={'white'}
+                        fontWeight={800}
+                    >
+                        Добро пожаловать, Иванов Иван Иванович!
+                    </Typography>
+                    <span>
                             <HeaderButton title={'???'}><FileDownloadOutlinedIcon/></HeaderButton>
                             <HeaderButton title={'???'}><VisibilityOutlinedIcon/></HeaderButton>
                             <HeaderButton title={'???'}><EditOutlinedIcon/></HeaderButton>
-                        </span>
-                    </Stack>
-                    <Grid container>
-                        <Grid item xs={2}/>
-                        <Grid item xs>
-                            <Tabs TabIndicatorProps={{hidden: true}} value={value} onChange={handleChange}
-                                  sx={{mt: 15}}>
-                                <StyledTab label="Информация"/>
-                                <StyledTab label="Заявки"/>
-                                <StyledTab label="Архив"/>
-                            </Tabs>
-                        </Grid>
+                    </span>
+                </Stack>
+                <Grid container>
+                    <Grid item xs={2}/>
+                    <Grid item xs>
+                        <Tabs TabIndicatorProps={{hidden: true}}
+                              value={value}
+                              onChange={handleChange}
+                              sx={{mt: 15}}
+                        >
+                            <StyledTab label="Информация"/>
+                            <StyledTab label="Заявки"/>
+                            <StyledTab label="Архив"/>
+                        </Tabs>
                     </Grid>
-                </Box>
-            </Box>
+                </Grid>
+            </GradientScreen>
             <>
                 <Grid container spacing={4}>
                     <Grid item xs={2}>
                         <Stack spacing={4} sx={{mt: -15}}>
-                            <Paper elevation={3} style={{
-                                aspectRatio: '1',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                padding: 4,
-                                position: 'relative',
-                            }}>
+                            <Paper elevation={3} sx={profilePaperSx}>
                                 <ProfileIcon sx={{fontSize: theme => theme.typography.pxToRem(120)}}/>
-                                <IconButton style={{
-                                    position: 'absolute',
-                                    bottom: 4,
-                                    right: 4,
-                                }}>
+                                <IconButton style={{position: 'absolute', bottom: 4, right: 4}}>
                                     <FileUploadOutlinedIcon fontSize={'medium'}/>
                                 </IconButton>
-                                {/*<FileUploadOutlinedIcon fontSize={'medium'} strokeWidth={1} style={{*/}
-                                {/*    position: 'absolute',*/}
-                                {/*    bottom: 4,*/}
-                                {/*    right: 4,*/}
-                                {/*}}/>*/}
                             </Paper>
                             <Button variant={'contained'} color={'secondary'}>Посмотреть профиль</Button>
                             <SectionWithTitle title={'Контактные данные'}>

@@ -12,6 +12,7 @@ import { useInstance } from 'react-ioc'
 import RootStore from '../../../stores/RootStore'
 import routes from '../../../consts/routes'
 
+
 const CompanyVacanciesMenu: FC = () => {
 
     const store = useInstance(RootStore)

@@ -37,8 +37,8 @@ const theme: Theme = createTheme({
     typography: {
         fontFamily: '\'Inter\', sans-serif',
         subtitle1: {
-            fontWeight: 700
-        }
+            fontWeight: 700,
+        },
     },
     shape: {
         borderRadius: 5,

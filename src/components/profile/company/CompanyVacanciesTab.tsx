@@ -38,11 +38,13 @@ const CompanyVacanciesTab: FC = () => {
     return (
         <Grid container spacing={4}>
             <Grid container item xs={9} spacing={2}>
-                {vacancies.map((el, ix) => (
-                    <Grid item xs={6} key={ix}>
-                        <VacancyCard vacancy={el}/>
-                    </Grid>
-                ))}
+                {
+                    vacancies.map((el, ix) => (
+                        <Grid item xs={6} key={ix}>
+                            <VacancyCard vacancy={el}/>
+                        </Grid>
+                    ))
+                }
             </Grid>
             <Grid item xs={3}>
                 <CompanyVacanciesMenu/>
