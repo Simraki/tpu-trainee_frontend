@@ -27,7 +27,7 @@ const routes = {
         component: <VacancyApplications/>,
     }),
     vacancyInfo: new Route<RootStore>({
-        path: '/vacancyInfo',
+        path: '/vacancy_info',
         component: <VacancyInfo/>,
     }),
     edit: new Route<RootStore>({
