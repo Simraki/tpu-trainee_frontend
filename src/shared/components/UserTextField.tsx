@@ -1,4 +1,4 @@
-import { Box, styled, TextField, TextFieldProps, Typography, TypographyProps } from '@mui/material'
+import { Box, TextField, TextFieldProps, Typography, TypographyProps } from '@mui/material'
 import React, { FC } from 'react'
 
 interface UserTextFieldProps {
@@ -7,18 +7,14 @@ interface UserTextFieldProps {
     inputProps?: TextFieldProps
 }
 
-const InputField = styled(TextField)<TextFieldProps>(() => ({
-    color: '#a9a9a9',
-}))
-
 const UserTextField: FC<UserTextFieldProps> = (props) => {
 
     return (
-        <Box mb={1}>
-            <Typography {...props.typographyProps} variant={'subtitle1'} sx={{fontWeight: 400}}>
+        <Box mb={2}>
+            <Typography {...props.typographyProps} variant={'subtitle1'} fontWeight={400}>
                 {props.label}
             </Typography>
-            <InputField placeholder={'Введите'} sx={{mb: 1}} {...props.inputProps} size={'small'} fullWidth/>
+            <TextField placeholder={'Введите'} {...props.inputProps} size={'small'} fullWidth/>
         </Box>
     )
 }

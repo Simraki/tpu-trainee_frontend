@@ -25,6 +25,7 @@ import CompanyInfoTab from './CompanyInfoTab'
 import CompanyVacanciesTab from './CompanyVacanciesTab'
 import GradientScreen from '../../../shared/components/GradientScreen'
 import { SxProps } from '@mui/system'
+import CompanyVacancyCreateTab from './CompanyVacancyCreateTab'
 
 
 const profilePaperSx: SxProps<Theme> = {
@@ -67,7 +68,7 @@ const StyledTab = styled(Tab)(({theme}) => ({
 
 const CompanyProfile = () => {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(2)
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
@@ -138,7 +139,7 @@ const CompanyProfile = () => {
                                     <CompanyVacanciesTab/>
                                 </TabPanel>
                                 <TabPanel value={'2'} sx={{p: 0, pl: 2}}>
-                                    <CompanyInfoTab/>
+                                    <CompanyVacancyCreateTab/>
                                 </TabPanel>
                             </TabContext>
                         </Box>
