@@ -1,12 +1,12 @@
 import React, { FC, memo } from 'react'
-import { AppBar, Box, Grid, Stack, styled, Toolbar, Typography } from '@mui/material'
+import { AppBar, Grid, Stack, styled, Toolbar } from '@mui/material'
 import { Announcement, CarRental, Home, PriceChange } from '@mui/icons-material'
 import { useInstance } from 'react-ioc'
 import { observer } from 'mobx-react'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import routes from '../../consts/routes'
 import RootStore from '../../stores/RootStore'
-import tpu_logo from '../../asset/tpu_logo.png'
+import dark_tpu_logo from '../../asset/dark_tpu_logo.png'
 import RoundedButton from '../../shared/components/RoundedButton'
 import { grey } from '@mui/material/colors'
 
@@ -63,25 +63,8 @@ const NavBar: FC = () => {
         <AppBar position="sticky" color={'secondary'} sx={{boxShadow: 6}}>
             <Toolbar>
                 <Grid container justifyContent={'space-evenly'} alignItems={'center'}>
-                    <Grid item xs={3}>
-                        <Stack direction={'row'} alignItems={'center'}>
-                            <img src={tpu_logo} style={{width: 40, height: 40, borderRadius: 2}} alt={'TPU Logo'}/>
-                            <Box ml={1}>
-                                <Typography
-                                    variant={'subtitle1'}
-                                    fontWeight={600}
-                                    color={'white'}
-                                >
-                                    СТАЖИРОВКИ
-                                </Typography>
-                                <Typography
-                                    variant={'subtitle2'}
-                                    color={'white'}
-                                >
-                                    ТОМСКИЙ ПОЛИТЕХ
-                                </Typography>
-                            </Box>
-                        </Stack>
+                    <Grid item xs={3} display={'inline-flex'}>
+                        <img src={dark_tpu_logo} height={40} alt={'TPU Logo'}/>
                     </Grid>
                     <Grid item container justifyContent={'center'} xs={6}>
                         {
