@@ -1,6 +1,5 @@
 import React, { FC, memo } from 'react'
 import { AppBar, Grid, Stack, styled, Toolbar } from '@mui/material'
-import { Announcement, CarRental, Home, PriceChange } from '@mui/icons-material'
 import { useInstance } from 'react-ioc'
 import { observer } from 'mobx-react'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
@@ -28,36 +27,22 @@ const NavBar: FC = () => {
         {
             name: 'Главная',
             route: routes.home,
-            icon: <Home style={{color: 'white'}}/>,
-            isActive: false,
         },
         {
             name: 'Вакансии',
             route: routes.vacancies,
-            icon: <Announcement style={{color: 'white'}}/>,
-            isActive: false,
         },
         {
             name: 'Проекты',
             route: routes.vacancyInfo,
-            icon: <CarRental style={{color: 'white'}}/>,
-            isActive: false,
         },
         {
             name: 'Мероприятия',
             route: routes.edit,
-            icon: <PriceChange style={{color: 'white'}}/>,
-            isActive: false,
         },
     ]
 
     const currentRoute = store.router.currentRoute
-    for (const [ix, menuItem] of Object.entries(menuItems)) {
-        if (menuItem.route === currentRoute) {
-            menuItems[Number(ix)].isActive = true
-            break
-        }
-    }
 
     return (
         <AppBar position="sticky" color={'secondary'} sx={{boxShadow: 6}}>
@@ -69,7 +54,7 @@ const NavBar: FC = () => {
                     <Grid item container justifyContent={'center'} xs={6}>
                         {
                             menuItems.map((el) => {
-                                return el.isActive ?
+                                return el.route === currentRoute ?
                                     <RoundedButton variant={'contained'}
                                                    sx={{color: theme => theme.palette.common.white}}
                                                    onClick={() => store.router.goTo(el.route)} key={el.name}
