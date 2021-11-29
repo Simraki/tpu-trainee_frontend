@@ -53,6 +53,14 @@ const theme: Theme = createTheme({
         },
     },
     components: {
+        MuiRadio: {
+          styleOverrides: {
+              root: {
+                  paddingTop: spacing / 4 * 3,
+                  paddingBottom: spacing / 4 * 3,
+              }
+          }
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
