@@ -23,7 +23,7 @@ import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
 import CompanyInfoTab from './CompanyInfoTab'
 import CompanyVacanciesTab from './CompanyVacanciesTab'
-import GradientScreen from '../../../shared/components/GradientScreen'
+import TopScreen from '../../../shared/components/TopScreen'
 import { SxProps } from '@mui/system'
 import CompanyVacancyCreateTab from './CompanyVacancyCreateTab'
 
@@ -76,7 +76,7 @@ const CompanyProfile = () => {
 
     return (
         <>
-            <GradientScreen>
+            <TopScreen>
                 <Stack direction={'row'}
                        justifyContent={'space-between'}
                        alignItems={'center'}
@@ -109,7 +109,7 @@ const CompanyProfile = () => {
                         </Tabs>
                     </Grid>
                 </Grid>
-            </GradientScreen>
+            </TopScreen>
             <>
                 <Grid container spacing={4}>
                     <Grid item xs={2}>

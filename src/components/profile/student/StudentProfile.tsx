@@ -23,7 +23,7 @@ import { TabContext, TabPanel } from '@mui/lab'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
 import StudentInfoTab from './StudentInfoTab'
 import StudentApplicationsTab from './StudentApplicationsTab'
-import GradientScreen from '../../../shared/components/GradientScreen'
+import TopScreen from '../../../shared/components/TopScreen'
 import { SxProps } from '@mui/system'
 
 
@@ -75,7 +75,7 @@ const StudentProfile = () => {
 
     return (
         <>
-            <GradientScreen>
+            <TopScreen>
                 <Stack direction={'row'}
                        justifyContent={'space-between'}
                        alignItems={'center'}
@@ -108,7 +108,7 @@ const StudentProfile = () => {
                         </Tabs>
                     </Grid>
                 </Grid>
-            </GradientScreen>
+            </TopScreen>
             <>
                 <Grid container spacing={4}>
                     <Grid item xs={2}>

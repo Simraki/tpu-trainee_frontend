@@ -16,7 +16,7 @@ import StyledTable from '../../shared/components/StyledTable'
 import GreyRoundedButton from '../../shared/components/GreyRoundedButton'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import { AddOutlined, CloseOutlined, DoneOutlined, PlaceOutlined } from '@mui/icons-material'
-import GradientScreen from '../../shared/components/GradientScreen'
+import TopScreen from '../../shared/components/TopScreen'
 import TagsList from '../../shared/components/TagsList'
 
 
@@ -97,7 +97,7 @@ const VacancyApplications: FC = () => {
 
     return (
         <>
-            <GradientScreen pb={6}>
+            <TopScreen pb={6}>
                 <Stack spacing={1} alignItems={'flex-start'}>
                     <Typography
                         variant={'h4'}
@@ -130,7 +130,7 @@ const VacancyApplications: FC = () => {
                         </Typography>
                     </Stack>
                 </Stack>
-            </GradientScreen>
+            </TopScreen>
 
             <Box mt={3} mb={2}>
                 <TagsList tags={tags}/>

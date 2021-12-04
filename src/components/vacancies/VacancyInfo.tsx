@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Button, Stack, Typography } from '@mui/material'
 import { PlaceOutlined } from '@mui/icons-material'
-import GradientScreen from '../../shared/components/GradientScreen'
+import TopScreen from '../../shared/components/TopScreen'
 import SectionWithTitle from '../../shared/components/SectionWithTitle'
 import TagsList from '../../shared/components/TagsList'
 
@@ -24,7 +24,7 @@ const VacancyInfo: FC = () => {
 
     return (
         <>
-            <GradientScreen pb={2}>
+            <TopScreen pb={2}>
                 <Stack spacing={1} alignItems={'flex-start'}>
                     <Typography
                         variant={'h4'}
@@ -59,7 +59,7 @@ const VacancyInfo: FC = () => {
                         </Typography>
                     </Stack>
                 </Stack>
-            </GradientScreen>
+            </TopScreen>
             <>
                 <Stack spacing={2} sx={{mt: 2, width: 0.6}}>
                     <section>
