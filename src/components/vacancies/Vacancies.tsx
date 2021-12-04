@@ -1,5 +1,20 @@
 import React, { FC } from 'react'
-import { Avatar, Box, Button, Chip, TableCell, TablePagination, TableRow, Typography } from '@mui/material'
+import {
+    Autocomplete,
+    Avatar,
+    Box,
+    Button,
+    Checkbox,
+    Chip,
+    FormControlLabel,
+    FormGroup,
+    Grid,
+    TableCell,
+    TablePagination,
+    TableRow,
+    TextField,
+    Typography,
+} from '@mui/material'
 import { bgAvatarColors, bgChipColors, textChipColors } from '../../consts/sideColors'
 import { TitleTable } from '../../shared/components/StyledTableHead'
 import ProfileIcon from '../../shared/components/ProfileIcon'
@@ -81,6 +96,100 @@ const Vacancies: FC = () => {
 
     return (
         <>
+            <Grid container mt={3} mb={2} alignItems={'stretch'}>
+                <Grid item xs>
+                    <Autocomplete multiple
+                                  filterSelectedOptions
+                                  fullWidth
+                                  options={['Django', 'React']}
+                                  autoHighlight
+                                  disableCloseOnSelect
+                                  renderInput={({InputProps, ...params}) =>
+                                      <TextField {...params}
+                                                 placeholder={'Теги...'}
+                                                 InputProps={{
+                                                     ...InputProps,
+                                                     style: {
+                                                         borderBottomRightRadius: 0,
+                                                         borderTopRightRadius: 0,
+                                                     },
+                                                 }}
+                                      />
+                                  }
+                                  renderTags={(value: readonly string[], getTagProps) =>
+                                      value.map((option: string, index: number) => (
+                                          // eslint-disable-next-line react/jsx-key
+                                          <Chip size={'small'}
+                                                sx={{
+                                                    bgcolor: bgChipColors[index % bgChipColors.length],
+                                                    color: textChipColors[index % textChipColors.length],
+                                                }}
+                                                label={option} {...getTagProps({index})}/>
+                                      ))
+                                  }
+                    />
+                </Grid>
+                <Grid item xs={2}>
+                    <Button variant={'contained'} fullWidth
+                            disableElevation
+                            sx={{
+                                height: 1,
+                                borderTopLeftRadius: 0,
+                                borderBottomLeftRadius: 0,
+                            }}
+                    >
+                        Найти
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item xs={2}>
+                    <Autocomplete options={['Компания 1', 'Компания 2']}
+                                  size={'small'}
+                                  renderInput={params =>
+                                      <TextField {...params}
+                                                 placeholder={'Все компании'}
+                                      />
+                                  }
+                    />
+                </Grid>
+                <Grid item xs={2}>
+                    <Autocomplete options={['Томск', 'Кемерово']}
+                                  size={'small'}
+                                  renderInput={params =>
+                                      <TextField {...params}
+                                                 placeholder={'Город'}
+                                      />
+                                  }
+                    />
+                </Grid>
+                <Grid item xs={2}>
+                    <Autocomplete options={['Полный', 'Сменный']}
+                                  size={'small'}
+                                  renderInput={params =>
+                                      <TextField {...params}
+                                                 placeholder={'График работы'}
+                                      />
+                                  }
+                    />
+                </Grid>
+                <Grid item xs={2}>
+                    <Autocomplete options={['Нет опыта', '1-3 года']}
+                                  size={'small'}
+                                  renderInput={params =>
+                                      <TextField {...params}
+                                                 placeholder={'Опыт работы'}
+                                      />
+                                  }
+                    />
+                </Grid>
+                <Grid item xs/>
+                <Grid item xs={2}>
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox />} label={'Мой стек'} />
+                    </FormGroup>
+                </Grid>
+            </Grid>
             <Typography variant={'h4'} fontWeight={600} my={2}>Результаты поиска:</Typography>
             {
                 tags.map((el, index) => (
