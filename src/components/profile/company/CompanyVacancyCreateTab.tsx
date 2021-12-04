@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import {
     Autocomplete,
-    Chip,
     FormControl,
     FormControlLabel,
     Grid,
@@ -12,8 +11,8 @@ import {
     Typography,
 } from '@mui/material'
 import UserTextField from '../../../shared/components/UserTextField'
-import { bgChipColors, textChipColors } from '../../../consts/sideColors'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
+import TagsAutocomplete from '../../../shared/components/TagsAutocomplete'
 
 
 const CompanyVacancyCreateTab: FC = () => {
@@ -64,23 +63,10 @@ const CompanyVacancyCreateTab: FC = () => {
                                                                     inputProps={params}/>
                               }
                 />
-                <Autocomplete multiple
-                              filterSelectedOptions
-                              options={['Django', 'React']}
-                              renderInput={params => <UserTextField label={'Технологический стек'}
-                                                                    inputProps={params}/>
-                              }
-                              renderTags={(value: readonly string[], getTagProps) =>
-                                  value.map((option: string, index: number) => (
-                                      // eslint-disable-next-line react/jsx-key
-                                      <Chip size={'small'}
-                                            sx={{
-                                                bgcolor: bgChipColors[index % bgChipColors.length],
-                                                color: textChipColors[index % textChipColors.length],
-                                            }}
-                                            label={option} {...getTagProps({index})}/>
-                                  ))
-                              }
+                <TagsAutocomplete options={['Django', 'React']}
+                                  renderInput={params => <UserTextField label={'Технологический стек'}
+                                                                        inputProps={params}/>
+                                  }
                 />
                 <UserTextField label={'Адрес офиса'}/>
                 <Autocomplete options={['₽ 20.000 - 30.000', '₽ 30.000 - 40.000']}

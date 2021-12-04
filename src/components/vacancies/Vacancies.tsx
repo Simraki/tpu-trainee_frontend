@@ -5,7 +5,6 @@ import {
     Box,
     Button,
     Checkbox,
-    Chip,
     FormControlLabel,
     FormGroup,
     Grid,
@@ -15,10 +14,13 @@ import {
     TextField,
     Typography,
 } from '@mui/material'
-import { bgAvatarColors, bgChipColors, textChipColors } from '../../consts/sideColors'
+import { bgAvatarColors } from '../../consts/sideColors'
 import { TitleTable } from '../../shared/components/StyledTableHead'
 import ProfileIcon from '../../shared/components/ProfileIcon'
 import StyledTable from '../../shared/components/StyledTable'
+import { observer } from 'mobx-react'
+import TagsAutocomplete from '../../shared/components/TagsAutocomplete'
+import TagsList from '../../shared/components/TagsList'
 
 
 const Vacancies: FC = () => {
@@ -98,35 +100,19 @@ const Vacancies: FC = () => {
         <>
             <Grid container mt={3} mb={2} alignItems={'stretch'}>
                 <Grid item xs>
-                    <Autocomplete multiple
-                                  filterSelectedOptions
-                                  fullWidth
-                                  options={['Django', 'React']}
-                                  autoHighlight
-                                  disableCloseOnSelect
-                                  renderInput={({InputProps, ...params}) =>
-                                      <TextField {...params}
-                                                 placeholder={'Теги...'}
-                                                 InputProps={{
-                                                     ...InputProps,
-                                                     style: {
-                                                         borderBottomRightRadius: 0,
-                                                         borderTopRightRadius: 0,
-                                                     },
-                                                 }}
-                                      />
-                                  }
-                                  renderTags={(value: readonly string[], getTagProps) =>
-                                      value.map((option: string, index: number) => (
-                                          // eslint-disable-next-line react/jsx-key
-                                          <Chip size={'small'}
-                                                sx={{
-                                                    bgcolor: bgChipColors[index % bgChipColors.length],
-                                                    color: textChipColors[index % textChipColors.length],
-                                                }}
-                                                label={option} {...getTagProps({index})}/>
-                                      ))
-                                  }
+                    <TagsAutocomplete options={['Django', 'React']}
+                                      renderInput={({InputProps, ...params}) =>
+                                          <TextField {...params}
+                                                     placeholder={'Теги...'}
+                                                     InputProps={{
+                                                         ...InputProps,
+                                                         style: {
+                                                             borderBottomRightRadius: 0,
+                                                             borderTopRightRadius: 0,
+                                                         },
+                                                     }}
+                                          />
+                                      }
                     />
                 </Grid>
                 <Grid item xs={2}>
@@ -186,24 +172,12 @@ const Vacancies: FC = () => {
                 <Grid item xs/>
                 <Grid item xs={2}>
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox />} label={'Мой стек'} />
+                        <FormControlLabel control={<Checkbox/>} label={'Мой стек'}/>
                     </FormGroup>
                 </Grid>
             </Grid>
             <Typography variant={'h4'} fontWeight={600} my={2}>Результаты поиска:</Typography>
-            {
-                tags.map((el, index) => (
-                    <Chip size={'small'}
-                          sx={{
-                              bgcolor: bgChipColors[index % bgChipColors.length],
-                              color: textChipColors[index % textChipColors.length],
-                              mr: 1.5,
-                          }}
-                          key={el}
-                          label={el}
-                    />
-                ))
-            }
+            <TagsList tags={tags}/>
             <Box mt={2}>
                 <StyledTable titles={titles} color={'primary'}>
                     {
@@ -254,4 +228,4 @@ const Vacancies: FC = () => {
     )
 }
 
-export default Vacancies
+export default observer(Vacancies)

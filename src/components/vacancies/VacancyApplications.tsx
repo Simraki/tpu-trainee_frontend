@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import {
     Avatar,
     Box,
-    Chip,
     IconButton,
     Stack,
     styled,
@@ -11,13 +10,14 @@ import {
     TableRow,
     Typography,
 } from '@mui/material'
-import { bgAvatarColors, bgChipColors, textChipColors } from '../../consts/sideColors'
+import { bgAvatarColors } from '../../consts/sideColors'
 import { TitleTable } from '../../shared/components/StyledTableHead'
 import StyledTable from '../../shared/components/StyledTable'
 import GreyRoundedButton from '../../shared/components/GreyRoundedButton'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import { AddOutlined, CloseOutlined, DoneOutlined, PlaceOutlined } from '@mui/icons-material'
 import GradientScreen from '../../shared/components/GradientScreen'
+import TagsList from '../../shared/components/TagsList'
 
 
 const TableDownloadButton = styled((props) =>
@@ -131,24 +131,14 @@ const VacancyApplications: FC = () => {
                     </Stack>
                 </Stack>
             </GradientScreen>
+
             <Box mt={3} mb={2}>
-                {
-                    tags.map((el, index) => (
-                        <Chip size={'small'}
-                              sx={{
-                                  bgcolor: bgChipColors[index % bgChipColors.length],
-                                  color: textChipColors[index % textChipColors.length],
-                                  mr: 1.5,
-                              }}
-                              key={el}
-                              label={el}
-                        />
-                    ))
-                }
+                <TagsList tags={tags}/>
                 <IconButton>
                     <AddOutlined/>
                 </IconButton>
             </Box>
+
             <Box mt={2}>
                 <StyledTable titles={titles} color={'primary'}>
                     {

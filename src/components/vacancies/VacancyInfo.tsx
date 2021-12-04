@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { Button, Chip, Stack, Typography } from '@mui/material'
-import { bgChipColors, textChipColors } from '../../consts/sideColors'
+import { Button, Stack, Typography } from '@mui/material'
 import { PlaceOutlined } from '@mui/icons-material'
 import GradientScreen from '../../shared/components/GradientScreen'
 import SectionWithTitle from '../../shared/components/SectionWithTitle'
+import TagsList from '../../shared/components/TagsList'
 
 const VacancyInfo: FC = () => {
 
@@ -72,18 +72,7 @@ const VacancyInfo: FC = () => {
                         }
                     </section>
                     <section>
-                        {
-                            tags.map((el, index) => (
-                                <Chip size={'small'}
-                                      sx={{
-                                          bgcolor: bgChipColors[index % bgChipColors.length],
-                                          color: textChipColors[index % textChipColors.length],
-                                          mr: 1.5,
-                                      }}
-                                      key={el}
-                                      label={el}/>
-                            ))
-                        }
+                        <TagsList tags={tags}/>
                     </section>
                     <SectionWithTitle title={'Описание вакансии:'}>
                         <Typography variant={'body1'}>

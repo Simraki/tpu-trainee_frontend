@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import { Autocomplete, Chip, Grid, InputAdornment } from '@mui/material'
+import { Autocomplete, Grid, InputAdornment } from '@mui/material'
 import UserTextField from '../../shared/components/UserTextField'
 import { observer } from 'mobx-react'
-import { bgChipColors, textChipColors } from '../../consts/sideColors'
+import TagsAutocomplete from '../../shared/components/TagsAutocomplete'
 
 
 const EditCompanyTab: FC = () => {
@@ -20,23 +20,10 @@ const EditCompanyTab: FC = () => {
                                                                     inputProps={params}/>
                               }
                 />
-                <Autocomplete multiple
-                              filterSelectedOptions
-                              options={['Django', 'React']}
-                              renderInput={params => <UserTextField label={'Технологический стек'}
-                                                                    inputProps={params}/>
-                              }
-                              renderTags={(value: readonly string[], getTagProps) =>
-                                  value.map((option: string, index: number) => (
-                                      // eslint-disable-next-line react/jsx-key
-                                      <Chip size={'small'}
-                                            sx={{
-                                                bgcolor: bgChipColors[index % bgChipColors.length],
-                                                color: textChipColors[index % textChipColors.length],
-                                            }}
-                                            label={option} {...getTagProps({index})}/>
-                                  ))
-                              }
+                <TagsAutocomplete options={['Django', 'React']}
+                                  renderInput={params => <UserTextField label={'Технологический стек'}
+                                                                        inputProps={params}/>
+                                  }
                 />
                 <UserTextField label={'Вебсайт'}
                                inputProps={{

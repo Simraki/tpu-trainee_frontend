@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { Chip, Stack, Typography } from '@mui/material'
-import { bgChipColors, textChipColors } from '../../../consts/sideColors'
+import { Stack, Typography } from '@mui/material'
 import GreyRoundedButton from '../../../shared/components/GreyRoundedButton'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import SectionWithTitle from '../../../shared/components/SectionWithTitle'
+import TagsList from '../../../shared/components/TagsList'
 
 
 const StudentInfoTab: FC = () => {
@@ -12,6 +12,7 @@ const StudentInfoTab: FC = () => {
 
     return (
         <Stack spacing={4}>
+
             <SectionWithTitle title={'Резюме'} mt={0}>
                 <Typography variant={'body1'}>ФИО: Иванов Иван Иванович</Typography>
                 <Typography variant={'body1'}>Дата рождения: 12.12.2000</Typography>
@@ -20,25 +21,16 @@ const StudentInfoTab: FC = () => {
                     Достижения: обладатель государственной президентской стипендии
                 </Typography>
             </SectionWithTitle>
+
             <SectionWithTitle title={'Дополнительная информация'}>
                 <Typography variant={'body1'}>КМС по спортивному ориентированию</Typography>
                 <Typography variant={'body1'}>Волонтер в организации “Стиль жизни”</Typography>
             </SectionWithTitle>
+
             <SectionWithTitle title={'Тэги'}>
-                {
-                    tags.map((el, index) => (
-                        <Chip size={'small'}
-                              sx={{
-                                  bgcolor: bgChipColors[index % bgChipColors.length],
-                                  color: textChipColors[index % textChipColors.length],
-                                  mr: 1.5,
-                              }}
-                              key={el}
-                              label={el}
-                        />
-                    ))
-                }
+                <TagsList tags={tags}/>
             </SectionWithTitle>
+
             <SectionWithTitle title={'Резюме'}>
                 <GreyRoundedButton endIcon={<FileDownloadOutlinedIcon/>} sx={{mr: 1}}>
                     PDF
@@ -47,6 +39,7 @@ const StudentInfoTab: FC = () => {
                     DOC
                 </GreyRoundedButton>
             </SectionWithTitle>
+
         </Stack>
     )
 }
