@@ -68,7 +68,7 @@ const StyledTab = styled(Tab)(({theme}) => ({
 
 const CompanyProfile = () => {
 
-    const [value, setValue] = useState(2)
+    const [value, setValue] = useState(0)
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
