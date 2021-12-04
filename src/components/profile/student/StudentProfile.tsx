@@ -75,7 +75,7 @@ const StudentProfile = () => {
 
     return (
         <>
-            <GradientScreen pb={0}>
+            <GradientScreen>
                 <Stack direction={'row'}
                        justifyContent={'space-between'}
                        alignItems={'center'}

@@ -8,7 +8,7 @@ const GradientScreen: FC<BoxProps> = (props) => {
             background: linearGradient,
         }}
         >
-            <Box px={10} pt={6} pb={2} {...props}/>
+            <Box px={10} pt={6} {...props}/>
         </Box>
     )
 }

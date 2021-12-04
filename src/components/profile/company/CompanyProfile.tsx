@@ -76,7 +76,7 @@ const CompanyProfile = () => {
 
     return (
         <>
-            <GradientScreen pb={0}>
+            <GradientScreen>
                 <Stack direction={'row'}
                        justifyContent={'space-between'}
                        alignItems={'center'}
