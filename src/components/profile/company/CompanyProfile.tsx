@@ -76,7 +76,7 @@ const CompanyProfile = () => {
 
     return (
         <>
-            <TopScreen>
+            <TopScreen defaultGradient>
                 <Stack direction={'row'}
                        justifyContent={'space-between'}
                        alignItems={'center'}

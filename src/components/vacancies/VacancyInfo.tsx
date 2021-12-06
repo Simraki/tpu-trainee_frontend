@@ -24,7 +24,7 @@ const VacancyInfo: FC = () => {
 
     return (
         <>
-            <TopScreen pb={2}>
+            <TopScreen defaultGradient pb={2}>
                 <Stack spacing={1} alignItems={'flex-start'}>
                     <Typography
                         variant={'h4'}

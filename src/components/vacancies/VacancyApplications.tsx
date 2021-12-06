@@ -97,7 +97,7 @@ const VacancyApplications: FC = () => {
 
     return (
         <>
-            <TopScreen pb={6}>
+            <TopScreen defaultGradient pb={6}>
                 <Stack spacing={1} alignItems={'flex-start'}>
                     <Typography
                         variant={'h4'}
