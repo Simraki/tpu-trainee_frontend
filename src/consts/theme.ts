@@ -54,12 +54,12 @@ const theme: Theme = createTheme({
     },
     components: {
         MuiRadio: {
-          styleOverrides: {
-              root: {
-                  paddingTop: spacing / 4 * 3,
-                  paddingBottom: spacing / 4 * 3,
-              }
-          }
+            styleOverrides: {
+                root: {
+                    paddingTop: spacing / 4 * 3,
+                    paddingBottom: spacing / 4 * 3,
+                },
+            },
         },
         MuiButton: {
             styleOverrides: {
@@ -67,6 +67,10 @@ const theme: Theme = createTheme({
                     fontWeight: 500,
                     fontStyle: 'normal',
                     textTransform: 'none',
+                    boxShadow: shadows[3],
+                    '&:active': {
+                        boxShadow: shadows[5],
+                    },
                 },
             },
             variants: [
@@ -75,12 +79,8 @@ const theme: Theme = createTheme({
                     style: {
                         background: 'white',
                         color: primary,
-                        boxShadow: shadows[3],
                         '&:hover': {
                             background: '#e9f2f6',
-                        },
-                        '&:active': {
-                            boxShadow: shadows[5],
                         },
                     },
                 },

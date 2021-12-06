@@ -5,14 +5,14 @@ import StudentProfile from '../components/profile/student/StudentProfile'
 import Vacancies from '../components/vacancies/Vacancies'
 import VacancyInfo from '../components/vacancies/VacancyInfo'
 import Edit from '../components/edit/Edit'
-import CompanyProfile from '../components/profile/company/CompanyProfile'
 import VacancyApplications from '../components/vacancies/VacancyApplications'
+import Home from '../components/home/Home'
 
 
 const routes = {
     home: new Route<RootStore>({
         path: '/',
-        component: <CompanyProfile/>,
+        component: <Home/>,
     }),
     studentProfile: new Route<RootStore>({
         path: '/sprofile',
