@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Box, BoxProps } from '@mui/material'
-import NoPaddingBox from './NoPaddingBox'
+import NoPaddingBox, { NoPaddingBoxProps } from './NoPaddingBox'
 import { linearGradient } from '../../consts/sideColors'
 
 
 interface TotalScreenProps extends BoxProps {
-    outerProps?: BoxProps
+    outerProps?: NoPaddingBoxProps
     defaultGradient?: boolean
 }
 

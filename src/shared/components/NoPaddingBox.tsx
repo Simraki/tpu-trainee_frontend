@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Box, BoxProps } from '@mui/material'
 
 
-interface NoPaddingBoxProps extends BoxProps {
+export interface NoPaddingBoxProps extends BoxProps {
     enableX?: boolean
     enableY?: boolean
 }
