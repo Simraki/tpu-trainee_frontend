@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import TopScreen from '../../shared/components/TopScreen'
 import home_bg from '../../asset/img/home_bg.jpg'
 import {
@@ -30,6 +30,10 @@ import {
     SentimentVerySatisfiedOutlined,
 } from '@mui/icons-material'
 import { grey } from '@mui/material/colors'
+import { useInstance } from 'react-ioc'
+import RootStore from '../../stores/RootStore'
+import { observer } from 'mobx-react'
+import dialogs from '../../consts/dialogs'
 
 
 const WhiteSelect = styled(Select)(({theme}) => ({
@@ -45,12 +49,13 @@ const WhiteSelect = styled(Select)(({theme}) => ({
 
 
 const Home: FC = () => {
-
-    const [searchType, setSearchType] = React.useState('vacancy')
+    const [searchType, setSearchType] = useState('vacancy')
 
     const handleChange = (event: SelectChangeEvent<any>) => {
         setSearchType(event.target.value)
     }
+
+    const {dialogStore} = useInstance(RootStore)
 
     const steps = [
         {
@@ -77,6 +82,7 @@ const Home: FC = () => {
 
     return (
         <>
+
             <TopScreen outerProps={{style: {background: `url(${home_bg})`}}} pt={18} pb={6}>
                 <Typography variant={'h4'} color={'white'} fontWeight={800}>
                     Поиск только нужных вакансий
@@ -126,10 +132,7 @@ const Home: FC = () => {
                         </Button>
                     </Grid>
                 </Grid>
-                <Link href={'#'} color={'#FFF'}
-                      style={{textUnderlineOffset: 2}}
-                      fontWeight={500}
-                >
+                <Link color={'#FFF'}>
                     Я работодатель
                 </Link>
             </TopScreen>
@@ -165,8 +168,18 @@ const Home: FC = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs container justifyContent={'flex-end'}>
-                        <Button variant={'contained'} sx={{mr: 2}}>Начать</Button>
-                        <Button variant={'contained'} color={'secondary'}>Подробнее</Button>
+                        <Button variant={'contained'}
+                                sx={{mr: 2}}
+                                onClick={() => dialogStore.setDialog(dialogs.registration)}
+                        >
+                            Начать
+                        </Button>
+                        <Button variant={'contained'}
+                                color={'secondary'}
+                                onClick={() => dialogStore.setDialog(dialogs.auth)}
+                        >
+                            Подробнее
+                        </Button>
                     </Grid>
                 </Grid>
             </Box>
@@ -174,4 +187,4 @@ const Home: FC = () => {
     )
 }
 
-export default Home
+export default observer(Home)

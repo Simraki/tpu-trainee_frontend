@@ -53,6 +53,15 @@ const theme: Theme = createTheme({
         },
     },
     components: {
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    textUnderlineOffset: 2,
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                },
+            },
+        },
         MuiRadio: {
             styleOverrides: {
                 root: {
@@ -163,12 +172,13 @@ const theme: Theme = createTheme({
             },
         },
         MuiDialog: {
+            defaultProps: {
+                hideBackdrop: true,
+                fullWidth: true
+            },
             styleOverrides: {
                 paper: {
-                    width: '100%',
-                    maxWidth: 430,
-                    marginLeft: spacing,
-                    marginRight: spacing,
+                    background: '#F1F5F9',
                 },
             },
         },

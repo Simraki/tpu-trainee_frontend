@@ -6,6 +6,7 @@ import { useInstance } from 'react-ioc'
 import RootStore from '../stores/RootStore'
 import { Box } from '@mui/material'
 import NavBar from './nav/NavBar'
+import DialogSelector from './DialogSelector'
 
 const Main: FC = () => {
 
@@ -19,6 +20,7 @@ const Main: FC = () => {
             <Box component={'main'} p={3} px={10}>
                 <MobxRouter store={store}/>
             </Box>
+            <DialogSelector/>
         </>
     )
 }
