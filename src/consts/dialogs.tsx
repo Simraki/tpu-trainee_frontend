@@ -1,6 +1,6 @@
 import React from 'react'
-import RegistrationDialog from '../components/home/RegistrationDialog'
-import AuthDialog from '../components/home/AuthDialog'
+import RegistrationDialog from '../components/dialogs/RegistrationDialog'
+import AuthDialog from '../components/dialogs/AuthDialog'
 
 export class DialogRoute {
     name: string
