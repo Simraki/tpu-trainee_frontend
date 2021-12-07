@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Vacancy } from '../../../stores/entities/Vacancy'
 import { Box, IconButton, ListItemIcon, ListItemText, MenuItem, Paper, Stack, styled, Typography } from '@mui/material'
 import { grey, orange } from '@mui/material/colors'
@@ -17,7 +17,7 @@ const VacancyPaper = styled((props) => <Paper elevation={3} {...props}/>)(({them
 
 const VacancyCard: FC<{ vacancy: Vacancy }> = ({vacancy}) => {
 
-    const [anchorEl, setAnchorEl] = React.useState<null | Element>(null)
+    const [anchorEl, setAnchorEl] = useState<null | Element>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent) => {
         setAnchorEl(event.currentTarget)

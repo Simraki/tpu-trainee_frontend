@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import {
     Autocomplete,
     Avatar,
@@ -25,8 +25,8 @@ import TagsList from '../../shared/components/TagsList'
 
 const Vacancies: FC = () => {
 
-    const [page, setPage] = React.useState(0)
-    const [rowsPerPage, setRowsPerPage] = React.useState(10)
+    const [page, setPage] = useState(0)
+    const [rowsPerPage, setRowsPerPage] = useState(10)
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage)
