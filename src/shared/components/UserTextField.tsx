@@ -14,7 +14,7 @@ const UserTextField: FC<UserTextFieldProps> = (props) => {
             <Typography {...props.typographyProps} variant={'subtitle1'} fontWeight={400}>
                 {props.label}
             </Typography>
-            <TextField placeholder={'Введите'} {...props.inputProps} size={'small'} fullWidth/>
+            <TextField placeholder={'Введите'} {...props.inputProps}/>
         </Box>
     )
 }

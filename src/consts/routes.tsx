@@ -7,6 +7,7 @@ import VacancyInfo from '../components/vacancies/VacancyInfo'
 import Edit from '../components/edit/Edit'
 import VacancyApplications from '../components/vacancies/VacancyApplications'
 import Home from '../components/home/Home'
+import CompanyProfile from '../components/profile/company/CompanyProfile'
 
 
 const routes = {
@@ -17,6 +18,10 @@ const routes = {
     studentProfile: new Route<RootStore>({
         path: '/sprofile',
         component: <StudentProfile/>,
+    }),
+    companyProfile: new Route<RootStore>({
+        path: '/cprofile',
+        component: <CompanyProfile/>,
     }),
     vacancies: new Route<RootStore>({
         path: '/vacancies',

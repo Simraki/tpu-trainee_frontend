@@ -34,6 +34,7 @@ import { useInstance } from 'react-ioc'
 import RootStore from '../../stores/RootStore'
 import { observer } from 'mobx-react'
 import dialogs from '../../consts/dialogs'
+import LinkButton from '../../shared/components/LinkButton'
 
 
 const WhiteSelect = styled(Select)(({theme}) => ({
@@ -93,6 +94,7 @@ const Home: FC = () => {
                                           renderInput={({InputProps, ...params}) =>
                                               <TextField {...params}
                                                          placeholder={'Я ищу...'}
+                                                         size={'medium'}
                                                          InputProps={{
                                                              ...InputProps,
                                                              style: {
@@ -132,9 +134,9 @@ const Home: FC = () => {
                         </Button>
                     </Grid>
                 </Grid>
-                <Link color={'#FFF'}>
+                <LinkButton colorVariant={'white'}>
                     Я работодатель
-                </Link>
+                </LinkButton>
             </TopScreen>
             <Box pt={2}>
                 <Timeline>

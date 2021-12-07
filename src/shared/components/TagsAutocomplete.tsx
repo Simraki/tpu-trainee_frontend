@@ -16,18 +16,18 @@ const TagsAutocomplete: FC<TagsAutocompleteProps> = ({options, renderInput}) => 
                       filterSelectedOptions
                       fullWidth
                       options={options}
-                      autoHighlight
                       disableCloseOnSelect
                       renderInput={renderInput}
                       renderTags={(value: readonly string[], getTagProps) =>
                           value.map((option: string, index: number) => (
                               // eslint-disable-next-line react/jsx-key
-                              <Chip size={'small'}
+                              <Chip label={option}
                                     sx={{
                                         bgcolor: bgChipColors[index % bgChipColors.length],
                                         color: textChipColors[index % textChipColors.length],
                                     }}
-                                    label={option} {...getTagProps({index})}/>
+                                    {...getTagProps({index})}
+                              />
                           ))
                       }
         />

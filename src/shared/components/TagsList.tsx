@@ -7,13 +7,12 @@ const TagsList: FC<{ tags: string[] }> = ({tags}) => {
         <>
             {
                 tags.map((el, index) => (
-                    <Chip size={'small'}
+                    <Chip key={el}
                           sx={{
                               bgcolor: bgChipColors[index % bgChipColors.length],
                               color: textChipColors[index % textChipColors.length],
                               mr: 1.5,
                           }}
-                          key={el}
                           label={el}
                     />
                 ))

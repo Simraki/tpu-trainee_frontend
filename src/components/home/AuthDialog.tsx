@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
-import { Box, Button, Dialog, DialogContent, IconButton, Link, TextField, Typography } from '@mui/material'
+import { Box, Button, Dialog, DialogContent, IconButton, TextField, Typography } from '@mui/material'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import { observer } from 'mobx-react'
 import { useInstance } from 'react-ioc'
 import RootStore from '../../stores/RootStore'
 import dialogs from '../../consts/dialogs'
+import LinkButton from '../../shared/components/LinkButton'
 
 
 const AuthDialog: FC = () => {
@@ -24,7 +25,7 @@ const AuthDialog: FC = () => {
                 Вход
             </Typography>
 
-            <DialogContent sx={{px: 4, py: 3, position: 'relative'}}>
+            <DialogContent sx={{px: 4, py: 3}}>
 
                 <TextField placeholder={'Логин или номер телефона'} fullWidth/>
                 <br/>
@@ -33,7 +34,9 @@ const AuthDialog: FC = () => {
 
                 <Box my={2} display={'flex'} justifyContent={'space-between'}>
                     <Typography color={'primary.main'}>Я работодатель</Typography>
-                    <Typography color={'#A3A5B1'}>Забыли пароль?</Typography>
+                    <LinkButton colorVariant={'grey'} fontWeight={400}>
+                        Забыли пароль?
+                    </LinkButton>
                 </Box>
 
                 <Box textAlign={'center'}>
@@ -48,11 +51,9 @@ const AuthDialog: FC = () => {
 
                 <Box textAlign={'center'} mt={2}>
                     <Typography>Нет аккаунта?</Typography>
-                    <Link color={'primary.main'}
-                          onClick={() => dialogStore.setDialog(dialogs.registration)}
-                    >
+                    <LinkButton onClick={() => dialogStore.setDialog(dialogs.registration)}>
                         Зарегистрируйся!
-                    </Link>
+                    </LinkButton>
                 </Box>
             </DialogContent>
         </Dialog>

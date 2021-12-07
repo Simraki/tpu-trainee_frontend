@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
-import { Box, Dialog, DialogContent, DialogTitle, Grid, IconButton, Link, Typography } from '@mui/material'
+import { Box, Dialog, DialogContent, Grid, IconButton, Typography } from '@mui/material'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import { useInstance } from 'react-ioc'
 import RootStore from '../../stores/RootStore'
 import { observer } from 'mobx-react'
 import dialogs from '../../consts/dialogs'
+import LinkButton from '../../shared/components/LinkButton'
 
 
 const RegistrationDialog: FC = () => {
@@ -40,11 +41,9 @@ const RegistrationDialog: FC = () => {
                 </Grid>
                 <Box textAlign={'center'} mt={2}>
                     <Typography>Уже есть аккаунт?</Typography>
-                    <Link color={'primary.main'}
-                          onClick={() => dialogStore.setDialog(dialogs.auth)}
-                    >
+                    <LinkButton onClick={() => dialogStore.setDialog(dialogs.auth)}>
                         Авторизуйтесь!
-                    </Link>
+                    </LinkButton>
                 </Box>
             </DialogContent>
         </Dialog>

@@ -36,6 +36,7 @@ const CompanyVacancyCreateTab: FC = () => {
                         />
                     </Grid>
                     <Grid item xs={4}>
+                        {/* TODO Сменить на Select */}
                         <Typography variant={'subtitle1'} fontWeight={400}>
                             Тип вакансии
                         </Typography>

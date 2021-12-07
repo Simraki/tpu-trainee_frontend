@@ -7,27 +7,26 @@ import EditCompanyTab from './EditCompanyTab'
 import { SxProps } from '@mui/system'
 
 
-const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
-    color: '#343535',
-    background: 'white',
-    fontWeight: 400,
-    margin: 16,
-    // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
-    boxShadow: theme.shadows[2],
-    '&:hover': {
-        // boxShadow: theme.shadows[2] + `, inset 0 0 0 2px ${grey[400]}`,
-        boxShadow: theme.shadows[2],
-        background: theme.palette.primary.dark,
-        color: 'white',
-    },
-}))
-
 const activeToggleButtonSx: SxProps<Theme> = {
     boxShadow: theme => theme.shadows[2] + `, inset 0 0 0 2px ${theme.palette.primary.main}`,
     '&:hover': {
         boxShadow: theme => theme.shadows[2] + `, inset 0 0 0 2px ${theme.palette.primary.dark}`,
     },
 }
+
+
+const ToggleButton = styled(RoundedButton)<ButtonProps>(({theme}) => ({
+    color: '#343535',
+    background: theme.palette.common.white,
+    fontWeight: 400,
+    margin: theme.spacing(2),
+    boxShadow: theme.shadows[2],
+    '&:hover': {
+        boxShadow: theme.shadows[2],
+        background: theme.palette.primary.dark,
+        color: theme.palette.common.white,
+    },
+}))
 
 
 const Edit: FC = () => {

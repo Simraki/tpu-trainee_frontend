@@ -53,11 +53,19 @@ const theme: Theme = createTheme({
         },
     },
     components: {
+        MuiAutocomplete: {
+            defaultProps: {
+                autoHighlight: true,
+                // size: 'small'
+            },
+        },
         MuiLink: {
+            defaultProps: {
+                fontWeight: 500,
+            },
             styleOverrides: {
                 root: {
                     textUnderlineOffset: 2,
-                    fontWeight: 500,
                     cursor: 'pointer',
                 },
             },
@@ -76,13 +84,18 @@ const theme: Theme = createTheme({
                     fontWeight: 500,
                     fontStyle: 'normal',
                     textTransform: 'none',
-                    boxShadow: shadows[3],
-                    '&:active': {
-                        boxShadow: shadows[5],
-                    },
                 },
             },
             variants: [
+                {
+                    props: {variant: 'contained'},
+                    style: {
+                        boxShadow: shadows[3],
+                        '&:active': {
+                            boxShadow: shadows[5],
+                        },
+                    },
+                },
                 {
                     props: {variant: 'contained', color: 'secondary'},
                     style: {
@@ -96,6 +109,9 @@ const theme: Theme = createTheme({
             ],
         },
         MuiChip: {
+            defaultProps: {
+                size: 'small',
+            },
             styleOverrides: {
                 root: {
                     '&:hover': {
@@ -105,6 +121,10 @@ const theme: Theme = createTheme({
             },
         },
         MuiTextField: {
+            defaultProps: {
+                size: 'small',
+                fullWidth: true
+            },
             styleOverrides: {
                 root: {
                     '.MuiOutlinedInput-root': {
@@ -149,10 +169,6 @@ const theme: Theme = createTheme({
                     fontWeight: 'inherit',
                     fontSize: 'inherit',
                     border: 'none',
-                    // [`@media (max-width:  ${sm}px)`]: {
-                    //     paddingLeft: spacing,
-                    //     paddingRight: spacing,
-                    // },
                 },
             },
         },
@@ -174,7 +190,7 @@ const theme: Theme = createTheme({
         MuiDialog: {
             defaultProps: {
                 hideBackdrop: true,
-                fullWidth: true
+                fullWidth: true,
             },
             styleOverrides: {
                 paper: {
